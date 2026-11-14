@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cunnilingo</title>
+<meta name="description" content="How the world says it: clinical terms, everyday verbs and local slang for cunnilingus in dozens of languages, with literal meanings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a phrasebook. Sticky filter bar, then one dictionary section per language, entries as ruled rows. */
+:root{
+  --paper:#eef3f1; --sheet:#ffffff; --ink:#2a1433; --muted:#6c5a75; --rule:#d5dedb;
+  --accent:#d81e6f; --accent-ink:#ffffff;
+  --clinical:#3f6fb5; --everyday:#16806d; --slang:#b26a00; --vulgar:#c2302b;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI","Noto Sans","Noto Sans CJK SC","Noto Sans Arabic","Noto Sans Hebrew","Noto Sans Devanagari",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1b1220; --sheet:#261a2d; --ink:#f3e9f4; --muted:#b29fb9; --rule:#3d2c46;
+    --accent:#ff5c9d; --accent-ink:#2a0a1a;
+    --clinical:#8fb4ee; --everyday:#5fd0ba; --slang:#f0b451; --vulgar:#ff8a80;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1b1220; --sheet:#261a2d; --ink:#f3e9f4; --muted:#b29fb9; --rule:#3d2c46;
+  --accent:#ff5c9d; --accent-ink:#2a0a1a;
+  --clinical:#8fb4ee; --everyday:#5fd0ba; --slang:#f0b451; --vulgar:#ff8a80;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{padding:36px 0 20px;display:flex;flex-direction:column;gap:14px}
+.mark{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,9vw,4.6rem);line-height:.95;letter-spacing:-.03em;margin:0}
+.mark span{color:var(--accent)}
+.tag{font-size:1.15rem;max-width:34em;margin:0;color:var(--muted)}
+.etym{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);padding:12px 0;font-size:.95rem}
+.etym b{font-family:var(--display);font-weight:800}
+.etym i{color:var(--muted)}
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);padding:14px 0;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--rule)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=search],input[type=text],select{font:inherit;color:var(--ink);background:var(--sheet);border:1.5px solid var(--rule);border-radius:10px;padding:10px 12px;min-width:0}
+input[type=search]{flex:1 1 240px}
+.bar select{flex:0 1 200px}
+button{font:inherit;cursor:pointer}
+.chip{border:1.5px solid var(--rule);background:var(--sheet);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:.88rem;font-weight:500;display:inline-flex;gap:6px;align-items:center}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.chip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.btn{border:1.5px solid var(--ink);background:none;color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button:disabled{opacity:.5;cursor:not-allowed}
+[hidden]{display:none!important}
+.panel{background:var(--sheet);border:1px solid var(--rule);border-radius:14px;padding:16px;margin-top:14px;display:flex;flex-direction:column;gap:12px}
+.panel h2{font-family:var(--display);font-weight:800;font-size:1.2rem;margin:0}
+.panel .entries{border-radius:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;font-weight:500;color:var(--muted)}
+.msg{font-size:.9rem;color:var(--muted);margin:0}
+.go{margin-left:auto;background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:8px 16px;font-weight:600}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.count{font-size:.88rem;color:var(--muted);margin:14px 0 0;font-variant-numeric:tabular-nums}
+main{padding:6px 0 48px;display:flex;flex-direction:column;gap:26px}
+section.lang h2{font-family:var(--display);font-weight:800;font-size:1.5rem;margin:18px 0 6px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;text-wrap:balance}
+section.lang h2 small{font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--muted)}
+.entries{background:var(--sheet);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding:14px 16px;border-top:1px solid var(--rule)}
+.entry:first-child{border-top:0}
+.entry.hit{box-shadow:inset 4px 0 0 var(--accent)}
+.term{font-family:var(--display);font-weight:500;font-size:1.35rem;line-height:1.25;overflow-wrap:anywhere}
+.rom{color:var(--muted);font-style:italic;font-size:.95rem}
+.gloss{grid-column:1/-1;margin:0;max-width:62ch}
+.gloss q{font-weight:600;quotes:"“" "”"}
+.side{display:flex;gap:8px;align-items:flex-start;justify-content:flex-end;flex-wrap:wrap}
+.pill{font-size:.75rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1.5px solid var(--c);color:var(--c);white-space:nowrap}
+.copy{border:0;background:none;color:var(--muted);font-size:.82rem;padding:3px 4px;text-decoration:underline}
+.empty{padding:40px 0;color:var(--muted)}
+footer{border-top:1px solid var(--rule);padding:20px 0 40px;color:var(--muted);font-size:.88rem;max-width:65ch}
+@media (max-width:480px){.go{margin-left:0}.entry{grid-template-columns:1fr}.side{justify-content:flex-start}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 class="mark">cunni<span>lingo</span></h1>
+    <p class="tag">How the world says it. Clinical terms, everyday verbs and local slang for cunnilingus, with the literal meaning of each.</p>
+    <div class="etym">
+      <span><b>cunnus</b> <i>Latin, vulva</i></span>
+      <span>+</span>
+      <span><b>lingere</b> <i>Latin, to lick</i></span>
+      <span>In classical Latin a <b>cunnilingus</b> was the person, not the act.</span>
+    </div>
+  </header>
+
+  <div class="bar">
+    <div class="row">
+      <input type="search" id="q" placeholder="Search a word, a meaning or a language" aria-label="Search">
+      <select id="lang" aria-label="Language"></select>
+    </div>
+    <div class="row" id="regs" role="group" aria-label="Register"></div>
+  </div>
+  <section class="panel" id="addpanel" hidden>
+    <h2>Suggest a term</h2>
+    <form id="addform" class="grid" autocomplete="off">
+      <label>Language<input type="text" id="f-lang" list="langlist" maxlength="40" required></label>
+      <label>Term<input type="text" id="f-term" maxlength="80" required></label>
+      <label>Romanization, if not in Latin script<input type="text" id="f-rom" maxlength="80"></label>
+      <label>Region, if local<input type="text" id="f-region" maxlength="40"></label>
+      <label>Register<select id="f-reg"></select></label>
+      <label>Literal meaning<input type="text" id="f-lit" maxlength="120"></label>
+      <label style="grid-column:1/-1">Note<input type="text" id="f-note" maxlength="200"></label>
+      <div class="row" style="grid-column:1/-1"><button class="btn primary" type="submit" id="f-go">Send suggestion</button><p class="msg" id="f-msg" aria-live="polite">Suggestions appear once a moderator approves them.</p></div>
+    </form>
+    <datalist id="langlist"></datalist>
+    
+  </section>
+  
+  <p class="msg" id="live" aria-live="polite"></p>
+  <p class="count" id="count" aria-live="polite"></p>
+
+  <main id="out"></main>
+
+  <footer>
+    Adult vocabulary, collected for curiosity and language learning. This is a starter set: slang shifts by region and generation, so treat entries as a guide and have a native speaker confirm before you rely on one.
+  </footer>
+</div>
+
+<script>
+const REG = {
+  clinical:{label:"Clinical", c:"var(--clinical)"},
+  everyday:{label:"Everyday", c:"var(--everyday)"},
+  slang:{label:"Slang", c:"var(--slang)"},
+  vulgar:{label:"Vulgar", c:"var(--vulgar)"}
+};
+// [language, region, code, term, romanization, register, literal, note]
+const D = [
+["Arabic","",'ar',"لحس الفرج","laḥs al-farj","clinical","licking the vulva",""],
+["Arabic","",'ar',"لحس","laḥs","everyday","licking","Context does the rest."],
+["Chinese","Mandarin",'zh',"舔阴","tiǎn yīn","clinical","to lick the yin","The standard descriptive term."],
+["Chinese","Mandarin",'zh',"口交","kǒujiāo","everyday","mouth intercourse","Oral sex of either kind."],
+["Chinese","Mandarin",'zh',"品玉","pǐn yù","slang","tasting jade","A literary euphemism, paired with “playing the flute” for fellatio."],
+["Danish","",'da',"slikke","","everyday","to lick",""],
+["Dutch","",'nl',"beffen","","everyday","","A dedicated verb with no other meaning, which few languages have."],
+["Dutch","",'nl',"cunnilingus","","clinical","",""],
+["English","",'en',"cunnilingus","","clinical","","Borrowed straight from Latin."],
+["English","",'en',"going down on","","everyday","","Used for oral sex on anyone."],
+["English","",'en',"eating out","","slang","",""],
+["English","UK",'en',"licking out","","slang","",""],
+["English","",'en',"muff diving","","slang","","Dated and jokey."],
+["English","US",'en',"dining at the Y","","slang","","The Y is the shape of the legs."],
+["Filipino","Tagalog",'tl',"brotsa","","slang","paintbrush","From Spanish brocha."],
+["Finnish","",'fi',"nuolla","","everyday","to lick",""],
+["French","",'fr',"cunnilingus","","clinical","",""],
+["French","",'fr',"faire minette","","everyday","to do kitty","Minette travelled: see Polish and Portuguese."],
+["French","",'fr',"brouter le minou","","slang","to graze the kitty",""],
+["French","",'fr',"descendre à la cave","","slang","to go down to the cellar",""],
+["French","",'fr',"bouffer la chatte","","vulgar","to scoff the pussy",""],
+["French","",'fr',"gamahucher","","slang","","Archaic and literary; covers oral sex of either kind."],
+["German","",'de',"Cunnilingus","","clinical","",""],
+["German","",'de',"Oralverkehr","","everyday","oral intercourse","Either kind."],
+["German","",'de',"lecken","","everyday","to lick",""],
+["German","",'de',"die Muschi lecken","","vulgar","to lick the pussy",""],
+["Greek","",'el',"αιδοιολειξία","aidoioleixía","clinical","vulva-licking","A native compound rather than the Latin loan."],
+["Hebrew","",'he',"לרדת ל","laredet le-","everyday","to go down on","Either kind."],
+["Hebrew","",'he',"ליקוק","likuk","everyday","licking",""],
+["Hindi","",'hi',"मुख मैथुन","mukh maithun","clinical","mouth intercourse","Oral sex of either kind."],
+["Hungarian","",'hu',"kinyalni","","slang","to lick out",""],
+["Indonesian","",'id',"jilmek","","vulgar","","A blend of jilat (lick) and memek (pussy)."],
+["Italian","",'it',"cunnilingio","","clinical","","Cunnilingus is also used."],
+["Italian","",'it',"leccare la fica","","vulgar","to lick the pussy","Figa in the north."],
+["Japanese","",'ja',"クンニリングス","kunniringusu","clinical","","The Latin word in katakana."],
+["Japanese","",'ja',"クンニ","kunni","everyday","","The clipped form everyone actually uses."],
+["Korean","",'ko',"커닐링구스","keonillinggeuseu","clinical","",""],
+["Korean","",'ko',"보빨","boppal","vulgar","","A crude two-syllable clipping."],
+["Latin","",'la',"cunnilingus","","clinical","vulva-licker","Named the doer, and was an insult in Roman satire."],
+["Norwegian","",'no',"slikke","","everyday","to lick",""],
+["Polish","",'pl',"minetka","","everyday","","From French minette. Also mineta."],
+["Polish","",'pl',"cunnilingus","","clinical","",""],
+["Portuguese","Portugal",'pt',"minete","","everyday","","From French minette; fazer um minete."],
+["Portuguese","",'pt',"cunilíngua","","clinical","",""],
+["Portuguese","Brazil",'pt',"cair de boca","","slang","to fall in mouth first","Oral sex of either kind."],
+["Portuguese","Brazil",'pt',"chupar buceta","","vulgar","to suck pussy",""],
+["Russian","",'ru',"куннилингус","kunnilingus","clinical","",""],
+["Russian","",'ru',"куни","kuni","slang","","Short form of the clinical word."],
+["Russian","",'ru',"отлизать","otlizat'","slang","to lick off",""],
+["Spanish","",'es',"cunnilingus","","clinical","","Also spelled cunilingus."],
+["Spanish","",'es',"sexo oral","","everyday","oral sex","Either kind."],
+["Spanish","Spain",'es',"bajar al pilón","","slang","to go down to the trough",""],
+["Spanish","Spain",'es',"comer el coño","","vulgar","to eat the pussy",""],
+["Spanish","Argentina",'es',"chupar la concha","","vulgar","to suck the shell","Concha is the local word."],
+["Swedish","",'sv',"slicka","","everyday","to lick",""],
+["Swedish","",'sv',"slicka fitta","","vulgar","to lick pussy",""],
+["Turkish","",'tr',"yalamak","","everyday","to lick",""],
+["Ukrainian","",'uk',"кунілінгус","kunilinhus","clinical","",""],
+["Vietnamese","",'vi',"liếm âm hộ","","clinical","to lick the vulva",""],
+["Vietnamese","",'vi',"vét máng","","slang","to scrape the trough",""],
+["Belarusian","",'be',"кунілінгус","kunilinhus","clinical","",""],
+["Bengali","",'bn',"মুখমৈথুন","mukhmoithun","clinical","mouth intercourse","Oral sex of either kind."],
+["Bulgarian","",'bg',"кунилингус","kunilingus","clinical","",""],
+["Catalan","",'ca',"cunnilicció","","clinical","",""],
+["Croatian","",'hr',"kunilingus","","clinical","",""],
+["Croatian","",'hr',"lizanje","","everyday","licking",""],
+["Czech","",'cs',"cunnilingus","","clinical","",""],
+["Czech","",'cs',"lízání","","everyday","licking",""],
+["Danish","",'da',"slikke fisse","","vulgar","to lick pussy",""],
+["English","",'en',"tipping the velvet","","slang","","Victorian slang, revived by Sarah Waters's novel of that name."],
+["English","",'en',"lip service","","slang","","A pun on the everyday phrase."],
+["English","",'en',"carpet munching","","vulgar","","Often used as a slur against lesbians."],
+["Esperanto","",'eo',"frandzi","","everyday","","A verb for oral sex of either kind."],
+["Estonian","",'et',"kunnilingus","","clinical","",""],
+["Finnish","",'fi',"cunnilingus","","clinical","",""],
+["Galician","",'gl',"cunnilingus","","clinical","",""],
+["Georgian","",'ka',"კუნილინგუსი","kunilingusi","clinical","",""],
+["Greek","",'el',"γλειφομούνι","gleifomoúni","vulgar","pussy-lick",""],
+["Hebrew","",'he',"קונילינגוס","kunilingus","clinical","",""],
+["Hungarian","",'hu',"nyalás","","everyday","licking",""],
+["Japanese","",'ja',"ハーモニカ","hāmonika","slang","harmonica","Played with the mouth, side to side."],
+["Japanese","",'ja',"口淫","kōin","clinical","mouth lewdness","Formal; oral sex of either kind."],
+["Latvian","",'lv',"kunilings","","clinical","",""],
+["Lithuanian","",'lt',"kunilingas","","clinical","",""],
+["Macedonian","",'mk',"кунилингус","kunilingus","clinical","",""],
+["Norwegian","",'no',"slikke fitte","","vulgar","to lick pussy",""],
+["Persian","",'fa',"سکس دهانی","seks-e dahāni","everyday","oral sex","Either kind."],
+["Romanian","",'ro',"cunilingus","","clinical","",""],
+["Serbian","",'sr',"кунилингус","kunilingus","clinical","",""],
+["Serbian","",'sr',"лизање","lizanje","everyday","licking",""],
+["Slovak","",'sk',"kunilingus","","clinical","",""],
+["Slovak","",'sk',"lízanie","","everyday","licking",""],
+["Slovenian","",'sl',"kunilingus","","clinical","",""],
+["Swedish","",'sv',"fittslick","","vulgar","pussy-lick","The noun form."],
+["Thai","",'th',"การเลีย","kan lia","everyday","licking",""],
+["Turkish","",'tr',"oral seks","","everyday","oral sex","Either kind."]
+].map(([lang,region,code,term,rom,reg,lit,note])=>({lang,region,code,term,rom,reg,lit,note}));
+
+const API = "https://mvyjlgtorejmonrumgcf.supabase.co/rest/v1/terms";
+const KEY = "sb_publishable_ZBdEjRrUQS5oufHm8YuVfA_AD8fUzk3"; // public by design: row rules on the server decide what it can do
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fold = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const state = {q:"", lang:"", regs:new Set()};
+let remote = null;    // approved terms from the database; the built-in list shows until they load
+const all = () => remote || D;
+
+$("regs").innerHTML = Object.entries(REG).map(([k,r]) =>
+  '<button class="chip" type="button" data-reg="'+k+'" aria-pressed="false" style="--c:'+r.c+'"><span class="dot"></span>'+r.label+'</button>'
+).join("") + '<button class="go" type="button" id="rand">Surprise me</button>' +
+  '<button class="btn" type="button" id="addbtn" aria-expanded="false" aria-controls="addpanel">Suggest a term</button>';
+$("f-reg").innerHTML = Object.entries(REG).map(([k,r])=>'<option value="'+k+'">'+r.label+'</option>').join("");
+
+function clean(o){
+  const s = (v,n) => typeof v==="string" ? v.trim().slice(0,n) : "";
+  const d = {lang:s(o.lang,40), region:s(o.region,40), term:s(o.term,80), rom:s(o.rom,80),
+    reg: Object.prototype.hasOwnProperty.call(REG,o.reg)?o.reg:"slang", lit:s(o.lit,120), note:s(o.note,200)};
+  if(!d.lang || !d.term) return null;
+  const known = [...new Set(all().map(x=>x.lang))].find(l => fold(l)===fold(d.lang));
+  d.lang = known || d.lang.charAt(0).toUpperCase()+d.lang.slice(1);
+  return d;
+}
+function matches(d){
+  if(state.lang && d.lang!==state.lang) return false;
+  if(state.regs.size && !state.regs.has(d.reg)) return false;
+  if(!state.q) return true;
+  return fold([d.lang,d.region,d.term,d.rom,d.lit,d.note,REG[d.reg].label].join(" ")).includes(fold(state.q));
+}
+function fillLangs(){
+  const langs = [...new Set(all().map(d=>d.lang))].sort();
+  if(!langs.includes(state.lang)) state.lang="";
+  $("lang").innerHTML = '<option value="">All '+langs.length+' languages</option>' +
+    langs.map(l=>'<option'+(l===state.lang?' selected':'')+'>'+esc(l)+'</option>').join("");
+  $("langlist").innerHTML = langs.map(l=>'<option value="'+esc(l)+'">').join("");
+}
+function render(hit){
+  fillLangs();
+  const list = all().filter(matches);
+  const groups = {};
+  list.forEach(d => (groups[d.lang] ||= []).push(d));
+  const names = Object.keys(groups).sort();
+  $("count").textContent = list.length + (list.length===1?" term":" terms") + " in " + names.length + (names.length===1?" language":" languages");
+  $("out").innerHTML = names.length ? names.map(l => {
+    const es = groups[l];
+    return '<section class="lang"><h2>'+esc(l)+' <small>'+es.length+(es.length===1?' entry':' entries')+'</small></h2><div class="entries">' +
+      es.map(d => {
+        const r = REG[d.reg];
+        const gloss = (d.lit?'<q>'+esc(d.lit)+'</q>'+(d.note?' · ':''):'') + esc(d.note);
+        return '<div class="entry'+(d===hit?' hit':'')+'"'+(d===hit?' id="hit"':'')+'>' +
+          '<div><div class="term" dir="auto" style="text-align:left"'+(/^[a-z-]{2,10}$/i.test(d.code||"")?' lang="'+d.code+'"':'')+'>'+esc(d.term)+'</div>' +
+          (d.rom?'<div class="rom">'+esc(d.rom)+'</div>':'')+'</div>' +
+          '<div class="side">'+(d.region?'<span class="pill" style="--c:var(--muted)">'+esc(d.region)+'</span>':'') +
+          (d.source==="community"?'<span class="pill" style="--c:var(--accent)">Community</span>':'') +
+          '<span class="pill" style="--c:'+r.c+'">'+r.label+'</span>' +
+          '<button class="copy" type="button" data-copy="'+esc(d.term)+'">Copy</button></div>' +
+          (gloss?'<p class="gloss">'+gloss+'</p>':'') + '</div>';
+      }).join("") + '</div></section>';
+  }).join("") : '<p class="empty">No terms match. Clear the search or pick another register.</p>';
+  if(hit){ const el=$("hit"); if(el) el.scrollIntoView({block:"center"}); }
+}
+
+$("q").addEventListener("input", e => {state.q=e.target.value.trim(); render();});
+$("lang").addEventListener("change", e => {state.lang=e.target.value; render();});
+$("regs").addEventListener("click", e => {
+  const b = e.target.closest("[data-reg]");
+  if(b){
+    const k=b.dataset.reg, on=!state.regs.has(k);
+    on?state.regs.add(k):state.regs.delete(k);
+    b.setAttribute("aria-pressed", on);
+    render(); return;
+  }
+  if(e.target.id==="rand"){
+    state.q=""; state.lang=""; state.regs.clear();
+    $("q").value="";
+    document.querySelectorAll("[data-reg]").forEach(x=>x.setAttribute("aria-pressed","false"));
+    const a = all();
+    render(a[Math.floor(Math.random()*a.length)]);
+  }
+  if(e.target.id==="addbtn"){
+    const p=$("addpanel"); p.hidden=!p.hidden;
+    e.target.setAttribute("aria-expanded", !p.hidden);
+    if(!p.hidden) $("f-lang").focus();
+  }
+});
+$("addform").addEventListener("submit", async e => {
+  e.preventDefault();
+  const msg=$("f-msg"), btn=$("f-go");
+  const d = clean({lang:$("f-lang").value, region:$("f-region").value, term:$("f-term").value, rom:$("f-rom").value, reg:$("f-reg").value, lit:$("f-lit").value, note:$("f-note").value});
+  if(!d){ msg.textContent="Enter at least a language and a term."; return; }
+  if(all().some(x => x.lang===d.lang && fold(x.term)===fold(d.term))){ msg.textContent="That term is already listed under "+d.lang+"."; return; }
+  btn.disabled=true; msg.textContent="Sending…";
+  try{
+    const r = await fetch(API, {method:"POST", headers:{apikey:KEY, "Content-Type":"application/json", Prefer:"return=minimal"}, body:JSON.stringify(d)});
+    if(r.ok){
+      msg.textContent="Sent. “"+d.term+"” will appear once a moderator approves it.";
+      ["f-term","f-rom","f-lit","f-note","f-region"].forEach(i=>$(i).value="");
+    }else if(r.status===409){ msg.textContent="Someone has already suggested that term for "+d.lang+"."; }
+    else { msg.textContent="That didn't go through. Try again in a moment."; }
+  }catch(_){ msg.textContent="That didn't go through. Check your connection and try again."; }
+  btn.disabled=false;
+});
+$("out").addEventListener("click", e => {
+  const b = e.target.closest("[data-copy]"); if(!b) return;
+  try{ navigator.clipboard.writeText(b.dataset.copy).then(()=>{b.textContent="Copied"; setTimeout(()=>b.textContent="Copy",1200);}).catch(()=>{b.textContent="Select to copy";}); }
+  catch(_){ b.textContent="Select to copy"; }
+});
+render();
+
+(async () => {
+  try{
+    const rows = [];
+    for(let off=0; off<20000; off+=1000){
+      const r = await fetch(API+"?select=lang,region,code,term,rom,reg,lit,note,source&status=eq.approved&order=lang,term&limit=1000&offset="+off, {headers:{apikey:KEY}});
+      if(!r.ok) throw new Error(r.status);
+      const page = await r.json();
+      rows.push(...page);
+      if(page.length<1000) break;
+    }
+    const ok = rows.map(x => { const c = clean(x); return c ? {...c, code:x.code||"", source:x.source} : null; }).filter(Boolean);
+    if(ok.length){ remote = ok; render(); }
+  }catch(_){ $("live").textContent="Showing the built-in list. The latest community terms couldn't be loaded."; }
+})();
+</script>
+</body>
+</html>
