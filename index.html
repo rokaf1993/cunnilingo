@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cunnilingo</title>
+<link rel="canonical" href="https://cunnilingo.org/">
 <meta name="description" content="How the world says it: clinical terms, everyday verbs and local slang for cunnilingus in dozens of languages, with literal meanings.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,11 +127,20 @@ footer{border-top:1px solid var(--rule);padding:20px 0 40px;color:var(--muted);f
   <main id="out"></main>
 
   <footer>
-    Adult vocabulary, collected for curiosity and language learning. This is a starter set: slang shifts by region and generation, so treat entries as a guide and have a native speaker confirm before you rely on one.
+    Adult vocabulary, collected for curiosity and language learning. This is a starter set: slang shifts by region and generation, so treat entries as a guide and have a native speaker confirm before using or sharing them.
   </footer>
 </div>
 
 <script>
+(function () {
+  const localHosts = ["localhost", "127.0.0.1", "::1"];
+  if (location.protocol !== "https:" && !localHosts.includes(location.hostname)) {
+    const url = new URL(location.href);
+    url.protocol = "https:";
+    window.location.replace(url.toString());
+  }
+})();
+
 const REG = {
   clinical:{label:"Clinical", c:"var(--clinical)"},
   everyday:{label:"Everyday", c:"var(--everyday)"},
@@ -240,7 +250,7 @@ const D = [
 const API = "https://mvyjlgtorejmonrumgcf.supabase.co/rest/v1/terms";
 const KEY = "sb_publishable_ZBdEjRrUQS5oufHm8YuVfA_AD8fUzk3"; // public by design: row rules on the server decide what it can do
 const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const esc = s => String(s).replace(/[&<>\"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
 const fold = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
 const state = {q:"", lang:"", regs:new Set()};
 let remote = null;    // approved terms from the database; the built-in list shows until they load
@@ -310,14 +320,14 @@ $("regs").addEventListener("click", e => {
     b.setAttribute("aria-pressed", on);
     render(); return;
   }
-  if(e.target.id==="rand"){
+  if(e.target.id=="rand"){
     state.q=""; state.lang=""; state.regs.clear();
     $("q").value="";
     document.querySelectorAll("[data-reg]").forEach(x=>x.setAttribute("aria-pressed","false"));
     const a = all();
     render(a[Math.floor(Math.random()*a.length)]);
   }
-  if(e.target.id==="addbtn"){
+  if(e.target.id=="addbtn"){
     const p=$("addpanel"); p.hidden=!p.hidden;
     e.target.setAttribute("aria-expanded", !p.hidden);
     if(!p.hidden) $("f-lang").focus();
