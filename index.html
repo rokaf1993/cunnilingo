@@ -65,7 +65,15 @@ label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;font-weight:50
 .go{margin-left:auto;background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:8px 16px;font-weight:600}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .count{font-size:.88rem;color:var(--muted);margin:14px 0 0;font-variant-numeric:tabular-nums}
-.tabs{display:flex;gap:4px;border-bottom:2px solid var(--ink);margin-top:18px}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:2px solid var(--ink);margin-top:18px}
+.wordrow{display:grid;grid-template-columns:minmax(110px,1fr) minmax(0,2.4fr);gap:2px 18px;padding:12px 16px;border-top:1px solid var(--rule);align-items:baseline}
+.wordrow:first-child{border-top:0}
+.lng{font-weight:600;color:var(--muted);font-size:.95rem}
+.wd{font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.25;overflow-wrap:anywhere}
+.wordrow .rom{font-size:.9rem}
+.wordrow .gloss{grid-column:2;margin-top:4px;font-size:.95rem;color:var(--muted)}
+.checked{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--everyday);margin-left:8px;white-space:nowrap}
+@media (max-width:480px){.wordrow{grid-template-columns:1fr}.wordrow .gloss{grid-column:1}}
 .tabs button{border:1.5px solid var(--rule);border-bottom:0;background:var(--paper);color:var(--muted);font-family:var(--display);font-weight:500;font-size:1.02rem;padding:9px 18px;border-radius:10px 10px 0 0;margin-bottom:-2px}
 .tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);font-weight:800}
 .intro{margin:18px 0 0;max-width:62ch}
@@ -110,6 +118,8 @@ footer{border-top:1px solid var(--rule);padding:20px 0 40px;color:var(--muted);f
   <nav class="tabs" role="tablist" aria-label="Sections">
     <button type="button" role="tab" id="tab-dict" aria-controls="view-dict" aria-selected="true">Dictionary</button>
     <button type="button" role="tab" id="tab-cockney" aria-controls="view-cockney" aria-selected="false">Cockney</button>
+    <button type="button" role="tab" id="tab-love" aria-controls="view-love" aria-selected="false">Love</button>
+    <button type="button" role="tab" id="tab-palestine" aria-controls="view-palestine" aria-selected="false">Free Palestine</button>
   </nav>
 
   <div id="view-dict" role="tabpanel" aria-labelledby="tab-dict">
@@ -195,6 +205,145 @@ footer{border-top:1px solid var(--rule);padding:20px 0 40px;color:var(--muted);f
 
     <footer>
       Sources: Brewer's Dictionary of London Phrase &amp; Fable via Oxford Reference, Green's Dictionary of Slang, Julian Franklyn's A Dictionary of Rhyming Slang, and Wikipedia on the Berkeley Hunt. Rhyming slang is spoken rather than written, so datings are approximate and usage varies.
+    </footer>
+  </section>
+
+  <section id="view-love" role="tabpanel" aria-labelledby="tab-love" hidden>
+    <p class="intro">The other word. 66 languages, with a note wherever a language splits the idea into words English runs together.</p>
+    <p class="count">66 languages</p>
+    <div class="entries">
+      <div class="wordrow"><div class="lng">Afrikaans</div><div><div class="wd" dir="auto">liefde</div></div></div>
+      <div class="wordrow"><div class="lng">Albanian</div><div><div class="wd" dir="auto">dashuri</div></div></div>
+      <div class="wordrow"><div class="lng">Amharic</div><div><div class="wd" dir="auto">ፍቅር</div><div class="rom">fiqir</div></div></div>
+      <div class="wordrow"><div class="lng">Arabic</div><div><div class="wd" dir="auto">حب</div><div class="rom">ḥubb</div></div><p class="gloss">Classical Arabic has a whole ladder of words for the stages of love, from hawā, the first stirring, up to ʿishq, the kind that consumes you.</p></div>
+      <div class="wordrow"><div class="lng">Armenian</div><div><div class="wd" dir="auto">սեր</div><div class="rom">ser</div></div></div>
+      <div class="wordrow"><div class="lng">Basque</div><div><div class="wd" dir="auto">maitasuna</div></div></div>
+      <div class="wordrow"><div class="lng">Bengali</div><div><div class="wd" dir="auto">ভালোবাসা</div><div class="rom">bhalobasha</div></div></div>
+      <div class="wordrow"><div class="lng">Bulgarian</div><div><div class="wd" dir="auto">любов</div><div class="rom">lyubov</div></div></div>
+      <div class="wordrow"><div class="lng">Catalan</div><div><div class="wd" dir="auto">amor</div></div></div>
+      <div class="wordrow"><div class="lng">Chinese</div><div><div class="wd" dir="auto">爱</div><div class="rom">ài</div></div><p class="gloss">Written 愛 in traditional characters.</p></div>
+      <div class="wordrow"><div class="lng">Croatian</div><div><div class="wd" dir="auto">ljubav</div></div></div>
+      <div class="wordrow"><div class="lng">Czech</div><div><div class="wd" dir="auto">láska</div></div></div>
+      <div class="wordrow"><div class="lng">Danish</div><div><div class="wd" dir="auto">kærlighed</div></div></div>
+      <div class="wordrow"><div class="lng">Dutch</div><div><div class="wd" dir="auto">liefde</div></div></div>
+      <div class="wordrow"><div class="lng">English</div><div><div class="wd" dir="auto">love</div></div></div>
+      <div class="wordrow"><div class="lng">Esperanto</div><div><div class="wd" dir="auto">amo</div></div></div>
+      <div class="wordrow"><div class="lng">Estonian</div><div><div class="wd" dir="auto">armastus</div></div></div>
+      <div class="wordrow"><div class="lng">Finnish</div><div><div class="wd" dir="auto">rakkaus</div></div></div>
+      <div class="wordrow"><div class="lng">French</div><div><div class="wd" dir="auto">amour</div></div></div>
+      <div class="wordrow"><div class="lng">Georgian</div><div><div class="wd" dir="auto">სიყვარული</div><div class="rom">siqvaruli</div></div></div>
+      <div class="wordrow"><div class="lng">German</div><div><div class="wd" dir="auto">Liebe</div></div></div>
+      <div class="wordrow"><div class="lng">Greek</div><div><div class="wd" dir="auto">αγάπη</div><div class="rom">agápi</div></div><p class="gloss">Ancient Greek split the idea four ways: érōs for desire, philía for friendship, storgē for family affection and agápē for the selfless kind. Only the last became the ordinary modern word.</p></div>
+      <div class="wordrow"><div class="lng">Hawaiian</div><div><div class="wd" dir="auto">aloha</div></div><p class="gloss">Love, affection and compassion, and also the everyday word for hello and goodbye.</p></div>
+      <div class="wordrow"><div class="lng">Hebrew</div><div><div class="wd" dir="auto">אהבה</div><div class="rom">ahava</div></div><p class="gloss">From the root a-h-b.</p></div>
+      <div class="wordrow"><div class="lng">Hindi</div><div><div class="wd" dir="auto">प्यार</div><div class="rom">pyār</div></div><p class="gloss">प्रेम (prem) is the more literary word.</p></div>
+      <div class="wordrow"><div class="lng">Hungarian</div><div><div class="wd" dir="auto">szerelem</div></div><p class="gloss">Romantic love only. Everyday affection is szeretet, and mixing the two up is a classic learner's mistake.</p></div>
+      <div class="wordrow"><div class="lng">Icelandic</div><div><div class="wd" dir="auto">ást</div></div></div>
+      <div class="wordrow"><div class="lng">Indonesian</div><div><div class="wd" dir="auto">cinta</div></div></div>
+      <div class="wordrow"><div class="lng">Irish</div><div><div class="wd" dir="auto">grá</div></div></div>
+      <div class="wordrow"><div class="lng">Italian</div><div><div class="wd" dir="auto">amore</div></div></div>
+      <div class="wordrow"><div class="lng">Japanese</div><div><div class="wd" dir="auto">愛</div><div class="rom">ai</div></div><p class="gloss">恋 (koi) is love as longing for a particular person. 愛 is the steadier and wider word.</p></div>
+      <div class="wordrow"><div class="lng">Korean</div><div><div class="wd" dir="auto">사랑</div><div class="rom">sarang</div></div></div>
+      <div class="wordrow"><div class="lng">Latin</div><div><div class="wd" dir="auto">amor</div></div><p class="gloss">Behind amour, amore, amor, amour-propre and most of the Romance words on this page.</p></div>
+      <div class="wordrow"><div class="lng">Latvian</div><div><div class="wd" dir="auto">mīlestība</div></div></div>
+      <div class="wordrow"><div class="lng">Lithuanian</div><div><div class="wd" dir="auto">meilė</div></div></div>
+      <div class="wordrow"><div class="lng">Macedonian</div><div><div class="wd" dir="auto">љубов</div><div class="rom">ljubov</div></div></div>
+      <div class="wordrow"><div class="lng">Malay</div><div><div class="wd" dir="auto">cinta</div></div></div>
+      <div class="wordrow"><div class="lng">Maltese</div><div><div class="wd" dir="auto">imħabba</div></div><p class="gloss">A Semitic root wearing Latin script, in the only Semitic language written that way.</p></div>
+      <div class="wordrow"><div class="lng">Mongolian</div><div><div class="wd" dir="auto">хайр</div><div class="rom">khair</div></div></div>
+      <div class="wordrow"><div class="lng">Māori</div><div><div class="wd" dir="auto">aroha</div></div><p class="gloss">Love, compassion and empathy in one word.</p></div>
+      <div class="wordrow"><div class="lng">Nepali</div><div><div class="wd" dir="auto">माया</div><div class="rom">māyā</div></div><p class="gloss">Also prem. Māyā carries affection and attachment together.</p></div>
+      <div class="wordrow"><div class="lng">Norwegian</div><div><div class="wd" dir="auto">kjærlighet</div></div></div>
+      <div class="wordrow"><div class="lng">Persian</div><div><div class="wd" dir="auto">عشق</div><div class="rom">eshq</div></div><p class="gloss">The word of the classical poets. محبت (mohabbat) is gentler and more everyday.</p></div>
+      <div class="wordrow"><div class="lng">Polish</div><div><div class="wd" dir="auto">miłość</div></div></div>
+      <div class="wordrow"><div class="lng">Portuguese</div><div><div class="wd" dir="auto">amor</div></div></div>
+      <div class="wordrow"><div class="lng">Punjabi</div><div><div class="wd" dir="auto">ਪਿਆਰ</div><div class="rom">pyār</div></div></div>
+      <div class="wordrow"><div class="lng">Romanian</div><div><div class="wd" dir="auto">dragoste</div></div><p class="gloss">iubire is the other everyday word.</p></div>
+      <div class="wordrow"><div class="lng">Russian</div><div><div class="wd" dir="auto">любовь</div><div class="rom">lyubov</div></div></div>
+      <div class="wordrow"><div class="lng">Serbian</div><div><div class="wd" dir="auto">љубав</div><div class="rom">ljubav</div></div></div>
+      <div class="wordrow"><div class="lng">Slovak</div><div><div class="wd" dir="auto">láska</div></div></div>
+      <div class="wordrow"><div class="lng">Slovenian</div><div><div class="wd" dir="auto">ljubezen</div></div></div>
+      <div class="wordrow"><div class="lng">Somali</div><div><div class="wd" dir="auto">jacayl</div></div></div>
+      <div class="wordrow"><div class="lng">Spanish</div><div><div class="wd" dir="auto">amor</div></div></div>
+      <div class="wordrow"><div class="lng">Swahili</div><div><div class="wd" dir="auto">upendo</div></div></div>
+      <div class="wordrow"><div class="lng">Swedish</div><div><div class="wd" dir="auto">kärlek</div></div></div>
+      <div class="wordrow"><div class="lng">Tagalog</div><div><div class="wd" dir="auto">pag-ibig</div></div><p class="gloss">Pag-ibig is the deep kind. Everyday affection is pagmamahal.</p></div>
+      <div class="wordrow"><div class="lng">Tamil</div><div><div class="wd" dir="auto">காதல்</div><div class="rom">kādhal</div></div><p class="gloss">Romantic love. அன்பு (anbu) is love meant as kindness.</p></div>
+      <div class="wordrow"><div class="lng">Thai</div><div><div class="wd" dir="auto">ความรัก</div><div class="rom">khwam rak</div></div></div>
+      <div class="wordrow"><div class="lng">Turkish</div><div><div class="wd" dir="auto">aşk</div></div><p class="gloss">Passionate love, from the same Arabic root as Persian eshq. Everyday affection is sevgi.</p></div>
+      <div class="wordrow"><div class="lng">Ukrainian</div><div><div class="wd" dir="auto">любов</div><div class="rom">lyubov</div></div></div>
+      <div class="wordrow"><div class="lng">Urdu</div><div><div class="wd" dir="auto">محبت</div><div class="rom">mohabbat</div></div><p class="gloss">Shares nearly all its love vocabulary with Hindi.</p></div>
+      <div class="wordrow"><div class="lng">Vietnamese</div><div><div class="wd" dir="auto">tình yêu</div></div></div>
+      <div class="wordrow"><div class="lng">Welsh</div><div><div class="wd" dir="auto">cariad</div></div><p class="gloss">Doubles as a term of endearment, the way English uses love.</p></div>
+      <div class="wordrow"><div class="lng">Yiddish</div><div><div class="wd" dir="auto">ליבע</div><div class="rom">libe</div></div></div>
+      <div class="wordrow"><div class="lng">Yoruba</div><div><div class="wd" dir="auto">ìfẹ́</div></div></div>
+      <div class="wordrow"><div class="lng">Zulu</div><div><div class="wd" dir="auto">uthando</div></div></div>
+    </div>
+    <footer>
+      Written from my own knowledge of these languages rather than checked word by word against a dictionary. The common European and East Asian words are safe; the notes about where languages divide the idea are the interesting part and the part most worth questioning.
+    </footer>
+  </section>
+
+  <section id="view-palestine" role="tabpanel" aria-labelledby="tab-palestine" hidden>
+    <p class="intro">The slogan, in 53 languages. Most are simply the word for free agreed with the local name for Palestine, but several languages reach for something other than a plain adjective, and those are the ones worth reading.</p>
+    <p class="count">53 languages &middot; 3 checked against published sources</p>
+    <div class="entries">
+      <div class="wordrow"><div class="lng">Arabic <span class="checked">sourced</span></div><div><div class="wd" dir="auto">فلسطين حرة</div><div class="rom">Filasṭīn ḥurra</div></div><p class="gloss">Also تحرير فلسطين (taḥrīr Filasṭīn), the liberation of Palestine, and الحرية لفلسطين (al-ḥurriyya li-Filasṭīn), freedom for Palestine.</p></div>
+      <div class="wordrow"><div class="lng">Hebrew <span class="checked">sourced</span></div><div><div class="wd" dir="auto">פלסטין חופשית</div><div class="rom">Palestin chofshit</div></div><p class="gloss">Translators rendering it as a slogan rather than a description have also used פלסטין משוחררת (Palestin meshuchreret), Palestine liberated.</p></div>
+      <div class="wordrow"><div class="lng">Irish <span class="checked">sourced</span></div><div><div class="wd" dir="auto">Saoirse don Phalaistín</div></div><p class="gloss">Literally freedom for Palestine. Painted on gable walls in Belfast and Derry, and the usual form on Irish marches rather than a word-for-word translation.</p></div>
+      <div class="wordrow"><div class="lng">Afrikaans</div><div><div class="wd" dir="auto">Vrye Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Albanian</div><div><div class="wd" dir="auto">Palestina e lirë</div></div></div>
+      <div class="wordrow"><div class="lng">Armenian</div><div><div class="wd" dir="auto">Ազատ Պաղեստին</div><div class="rom">Azat Paghestin</div></div></div>
+      <div class="wordrow"><div class="lng">Basque</div><div><div class="wd" dir="auto">Palestina askatu</div></div><p class="gloss">An imperative rather than a description: set Palestine free.</p></div>
+      <div class="wordrow"><div class="lng">Bengali</div><div><div class="wd" dir="auto">স্বাধীন ফিলিস্তিন</div><div class="rom">Swādhīn Filistin</div></div></div>
+      <div class="wordrow"><div class="lng">Bulgarian</div><div><div class="wd" dir="auto">Свободна Палестина</div><div class="rom">Svobodna Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Catalan</div><div><div class="wd" dir="auto">Palestina lliure</div></div></div>
+      <div class="wordrow"><div class="lng">Chinese</div><div><div class="wd" dir="auto">自由巴勒斯坦</div><div class="rom">zìyóu Bālèsītǎn</div></div></div>
+      <div class="wordrow"><div class="lng">Croatian</div><div><div class="wd" dir="auto">Slobodna Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Czech</div><div><div class="wd" dir="auto">Svobodná Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Danish</div><div><div class="wd" dir="auto">Frit Palæstina</div></div></div>
+      <div class="wordrow"><div class="lng">Dutch</div><div><div class="wd" dir="auto">Vrij Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Esperanto</div><div><div class="wd" dir="auto">Libera Palestino</div></div></div>
+      <div class="wordrow"><div class="lng">Estonian</div><div><div class="wd" dir="auto">Vaba Palestiina</div></div></div>
+      <div class="wordrow"><div class="lng">Finnish</div><div><div class="wd" dir="auto">Vapaa Palestiina</div></div></div>
+      <div class="wordrow"><div class="lng">French</div><div><div class="wd" dir="auto">Palestine libre</div></div></div>
+      <div class="wordrow"><div class="lng">Galician</div><div><div class="wd" dir="auto">Palestina libre</div></div></div>
+      <div class="wordrow"><div class="lng">Georgian</div><div><div class="wd" dir="auto">თავისუფალი პალესტინა</div><div class="rom">tavisupali Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">German</div><div><div class="wd" dir="auto">Freies Palästina</div></div></div>
+      <div class="wordrow"><div class="lng">Greek</div><div><div class="wd" dir="auto">Ελεύθερη Παλαιστίνη</div><div class="rom">Eléftheri Palaistíni</div></div></div>
+      <div class="wordrow"><div class="lng">Hindi</div><div><div class="wd" dir="auto">आज़ाद फ़िलिस्तीन</div><div class="rom">Āzād Filistīn</div></div></div>
+      <div class="wordrow"><div class="lng">Hungarian</div><div><div class="wd" dir="auto">Szabad Palesztina</div></div></div>
+      <div class="wordrow"><div class="lng">Indonesian</div><div><div class="wd" dir="auto">Palestina merdeka</div></div><p class="gloss">Merdeka is free in the sense of independent, the word carried over from Indonesia's own independence struggle.</p></div>
+      <div class="wordrow"><div class="lng">Italian</div><div><div class="wd" dir="auto">Palestina libera</div></div></div>
+      <div class="wordrow"><div class="lng">Japanese</div><div><div class="wd" dir="auto">自由なパレスチナ</div><div class="rom">jiyū na Paresuchina</div></div><p class="gloss">Marchers more often chant パレスチナに自由を (Paresuchina ni jiyū o), freedom to Palestine.</p></div>
+      <div class="wordrow"><div class="lng">Korean</div><div><div class="wd" dir="auto">자유 팔레스타인</div><div class="rom">jayu Palleseutain</div></div></div>
+      <div class="wordrow"><div class="lng">Latin</div><div><div class="wd" dir="auto">Palaestina libera</div></div></div>
+      <div class="wordrow"><div class="lng">Latvian</div><div><div class="wd" dir="auto">Brīva Palestīna</div></div></div>
+      <div class="wordrow"><div class="lng">Lithuanian</div><div><div class="wd" dir="auto">Laisva Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Macedonian</div><div><div class="wd" dir="auto">Слободна Палестина</div><div class="rom">Slobodna Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Malay</div><div><div class="wd" dir="auto">Palestin merdeka</div></div><p class="gloss">Malay spells the country Palestin, Indonesian spells it Palestina.</p></div>
+      <div class="wordrow"><div class="lng">Maltese</div><div><div class="wd" dir="auto">Palestina ħielsa</div></div></div>
+      <div class="wordrow"><div class="lng">Persian</div><div><div class="wd" dir="auto">فلسطین آزاد</div><div class="rom">Felestin āzād</div></div></div>
+      <div class="wordrow"><div class="lng">Polish</div><div><div class="wd" dir="auto">Wolna Palestyna</div></div></div>
+      <div class="wordrow"><div class="lng">Portuguese</div><div><div class="wd" dir="auto">Palestina livre</div></div></div>
+      <div class="wordrow"><div class="lng">Romanian</div><div><div class="wd" dir="auto">Palestina liberă</div></div></div>
+      <div class="wordrow"><div class="lng">Russian</div><div><div class="wd" dir="auto">Свободная Палестина</div><div class="rom">Svobodnaya Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Serbian</div><div><div class="wd" dir="auto">Слободна Палестина</div><div class="rom">Slobodna Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Slovak</div><div><div class="wd" dir="auto">Slobodná Palestína</div></div></div>
+      <div class="wordrow"><div class="lng">Slovenian</div><div><div class="wd" dir="auto">Svobodna Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Somali</div><div><div class="wd" dir="auto">Falastiin xor ah</div></div></div>
+      <div class="wordrow"><div class="lng">Spanish</div><div><div class="wd" dir="auto">Palestina libre</div></div></div>
+      <div class="wordrow"><div class="lng">Swahili</div><div><div class="wd" dir="auto">Palestina huru</div></div></div>
+      <div class="wordrow"><div class="lng">Swedish</div><div><div class="wd" dir="auto">Fritt Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Tagalog</div><div><div class="wd" dir="auto">Malayang Palestina</div></div></div>
+      <div class="wordrow"><div class="lng">Thai</div><div><div class="wd" dir="auto">ปาเลสไตน์เสรี</div><div class="rom">Palestine seri</div></div></div>
+      <div class="wordrow"><div class="lng">Turkish</div><div><div class="wd" dir="auto">Özgür Filistin</div></div></div>
+      <div class="wordrow"><div class="lng">Ukrainian</div><div><div class="wd" dir="auto">Вільна Палестина</div><div class="rom">Vilna Palestyna</div></div></div>
+      <div class="wordrow"><div class="lng">Urdu</div><div><div class="wd" dir="auto">آزاد فلسطین</div><div class="rom">Āzād Filastīn</div></div></div>
+      <div class="wordrow"><div class="lng">Vietnamese</div><div><div class="wd" dir="auto">Palestine tự do</div></div></div>
+    </div>
+    <footer>
+      Arabic, Hebrew and Irish are marked sourced: those three were checked against published usage, and the Irish is the form actually used on marches rather than a literal translation. Everything else is a straightforward rendering of free plus the local name for the country, written from my own knowledge. Have a native speaker confirm one before you print it on anything.
     </footer>
   </section>
 
@@ -430,7 +579,12 @@ $("out").addEventListener("click", e => {
 render();
 
 (function(){
-  const tabs = {dict:[$("tab-dict"), $("view-dict"), $("foot-dict")], cockney:[$("tab-cockney"), $("view-cockney")]};
+  const tabs = {
+    dict:[$("tab-dict"), $("view-dict"), $("foot-dict")],
+    cockney:[$("tab-cockney"), $("view-cockney")],
+    love:[$("tab-love"), $("view-love")],
+    palestine:[$("tab-palestine"), $("view-palestine")]
+  };
   function show(name, push){
     if(!tabs[name]) name = "dict";
     for(const k in tabs){
