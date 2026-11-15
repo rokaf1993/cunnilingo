@@ -72,6 +72,23 @@ label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;font-weight:50
 .wd{font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.25;overflow-wrap:anywhere;text-align:left}
 .wordrow .rom{font-size:.9rem}
 .wordrow .gloss{grid-column:2;margin-top:4px;font-size:.95rem;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:16px}
+.stat{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:12px 14px}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-size:.82rem;color:var(--muted)}
+.art{background:var(--sheet);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;margin-top:12px}
+.art h3{font-family:var(--display);font-weight:800;font-size:1.25rem;margin:0;letter-spacing:.02em}
+.art .src{font-size:.8rem;color:var(--muted);margin:2px 0 10px}
+.fr{font-family:Georgia,"Times New Roman",serif;font-size:1.02rem;line-height:1.55;border-left:3px solid var(--accent);padding-left:14px;margin:0 0 8px;max-width:62ch}
+.art p{margin:0 0 8px;max-width:64ch}
+.art p:last-child{margin-bottom:0}
+.renvoi{font-size:.88rem;color:var(--muted);margin-top:10px!important}
+.renvoi b{font-family:var(--display);color:var(--accent);font-weight:800}
+.tl{list-style:none;padding:0;margin:12px 0 0;max-width:64ch}
+.tl li{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:9px 0;border-top:1px solid var(--rule)}
+.tl li:first-child{border-top:0}
+.tl b{font-family:var(--display);font-weight:800;font-variant-numeric:tabular-nums}
+@media (max-width:480px){.tl li{grid-template-columns:1fr;gap:2px}}
 .slangrow{display:grid;grid-template-columns:minmax(150px,1.3fr) minmax(0,2fr);gap:2px 18px;padding:11px 16px;border-top:1px solid var(--rule);align-items:baseline}
 .slangrow:first-child{border-top:0}
 .ph{font-family:var(--display);font-weight:500;font-size:1.18rem;line-height:1.25}
@@ -131,6 +148,7 @@ footer{border-top:1px solid var(--rule);padding:20px 0 40px;color:var(--muted);f
     <button type="button" role="tab" id="tab-dict" aria-controls="view-dict" aria-selected="true">Dictionary</button>
     <button type="button" role="tab" id="tab-cockney" aria-controls="view-cockney" aria-selected="false">Cockney</button>
     <button type="button" role="tab" id="tab-love" aria-controls="view-love" aria-selected="false">Love</button>
+    <button type="button" role="tab" id="tab-encyclopedie" aria-controls="view-encyclopedie" aria-selected="false">Encyclop&eacute;die</button>
     <button type="button" role="tab" id="tab-palestine" aria-controls="view-palestine" aria-selected="false">Free Palestine</button>
     <a class="tablink" href="/cunt/">The c-word &rarr;</a>
   </nav>
@@ -391,6 +409,72 @@ footer{border-top:1px solid var(--rule);padding:20px 0 40px;color:var(--muted);f
 
     <footer>
       This is the well-established corpus rather than a complete dictionary: published collections such as Julian Franklyn's and Green's run to several thousand entries, many of them local, one-off or invented for a book, and copying one of those wholesale is not mine to do. Sources for the entries above: Brewer's Dictionary of London Phrase &amp; Fable via Oxford Reference, Green's Dictionary of Slang, Franklyn's A Dictionary of Rhyming Slang and Wikipedia. Rhyming slang is spoken far more than written, so spellings vary and most datings are approximate.
+    </footer>
+  </section>
+
+  <section id="view-encyclopedie" role="tabpanel" aria-labelledby="tab-encyclopedie" hidden>
+    <p class="intro">The <em>Encyclop&eacute;die, ou dictionnaire raisonn&eacute; des sciences, des arts et des m&eacute;tiers</em> belongs on a site like this one. It set out to name everything plainly, the body included, at a point when doing so could get your publisher arrested. Its anatomists were describing the clitoris accurately in 1753.</p>
+
+    <div class="stats">
+      <div class="stat"><b>1751&ndash;72</b><span>From the first volume to the last</span></div>
+      <div class="stat"><b>17 + 11</b><span>Volumes of text, then of engraved plates</span></div>
+      <div class="stat"><b>72,000</b><span>Articles</span></div>
+      <div class="stat"><b>140+</b><span>Named contributors</span></div>
+      <div class="stat"><b>20.8m</b><span>Words</span></div>
+      <div class="stat"><b>25,000</b><span>Copies sold by 1782</span></div>
+    </div>
+
+    <h2 style="font-family:var(--display);font-weight:800;font-size:1.5rem;margin:30px 0 0">What it says on the subject</h2>
+    <p class="intro">Four entries, in the original and in plain English. The anatomy was handled mostly by Pierre Tarin, a working anatomist, and it is better than its reputation.</p>
+
+    <div class="art">
+      <h3>CLITORIS</h3>
+      <p class="src">Pierre Tarin &middot; vol. 3 (1753), p. 538 &middot; <em>terme d'Anatomie</em></p>
+      <p class="fr">corps rond &amp; long situ&eacute; &agrave; la partie ant&eacute;rieure de la vulve &hellip; il a deux corps caverneux, un gland &agrave; l'extr&eacute;mit&eacute; couvert d'un pr&eacute;puce, mais qui n'est pas perc&eacute; comme le membre viril</p>
+      <p>A round, long body at the front of the vulva, with two cavernous bodies and a glans under a hood, differing from the penis in not being pierced: it has only the mark of the hole, as Tarin puts it.</p>
+      <p>Then the detail that matters. The spongy bodies rise separately from the pubic bone and join to form the clitoris, and before they meet they are called the <em>cuisses du clitoris</em>, the thighs of the clitoris, or <em>crura clitoridis</em> &mdash; and Tarin records that they are twice as long as the clitoris itself. The internal clitoris, treated as news when it was rediscovered in the late twentieth century, is sitting in a French dictionary from 1753.</p>
+      <p class="renvoi">Its cross-references: <b>Gland</b>, <b>Pr&eacute;puce</b>, <b>Nymphes</b>.</p>
+    </div>
+
+    <div class="art">
+      <h3>NYMPHES</h3>
+      <p class="src">vol. 11 (1765) &middot; the labia minora</p>
+      <p class="fr">deux plis prominens de la peau int&eacute;rieure &hellip; &eacute;tendus depuis le pr&eacute;puce du clitoris jusqu'au grand orifice de la matrice</p>
+      <p>Two folds of inner skin running from the clitoral hood down. They are called nymphs, the article explains, <em>parce qu'on a cru qu'elles dirigeoient le cours de l'urine</em>: because it was believed they directed the flow of urine. A false etymology preserved in the word, which is the kind of thing this site collects.</p>
+      <p>The description is attentive. They are vermilion crests in young girls; they swell in proportion to the clitoris when blood arrives; they carry many papillae, which the article says make them <em>fort sensibles</em>, very sensitive. Their nerves, like the clitoris's, are traced to the intercostals.</p>
+      <p>The same entry carries <em>nymphotomie</em>, the surgical amputation of part of the nymphes or of the clitoris where they were judged large enough to prevent the consummation of a marriage. An Enlightenment reference work describing female genital cutting as a routine procedure, in the same calm register as everything else.</p>
+    </div>
+
+    <div class="art">
+      <h3>VULVE</h3>
+      <p class="src"><em>Anatomie</em>, attributed to the chevalier de Jaucourt</p>
+      <p>Measured from the pubic bone to near the anus, with the gap between the end of the cleft and the anus given as no more than a thumb's breadth: the perineum. Much of the article is then taken up with imperforation and the surgical cases of Mauriceau, which tells you where eighteenth-century medical attention actually went.</p>
+      <p>Its best line is a throwaway. <em>La vulve du cerveau</em> &mdash; the vulva of the brain &mdash; was the anterior opening of the third ventricle. Anatomists used the word wherever they found a cleft, and nobody thought it indecent.</p>
+    </div>
+
+    <div class="art">
+      <h3>JOUISSANCE</h3>
+      <p class="src">Two different articles, two different men, one word</p>
+      <p>The Encyclop&eacute;die runs <em>jouissance</em> twice. The second, marked <em>Jurisprudence</em> and signed A, is by Antoine-Gaspard Boucher d'Argis, the project's chief jurist and author of over four thousand articles; it is about possession and usufruct, and it is as dry as that sounds.</p>
+      <p>The first, marked <em>Grammaire</em>, is Diderot, and it is one of his most famous pieces of writing. He takes a legal word for enjoying a thing you own and hands it to sexual pleasure instead, which quietly displaces love as the organising idea. Commentators have noted where that argument lands: women as the agents who drag the species out of brutishness, and therefore the education of girls as the thing that matters most.</p>
+      <p class="renvoi">The attribution to Diderot comes from Naigeon, his friend, who reprinted the article under Diderot's name in 1821.</p>
+    </div>
+
+    <h2 style="font-family:var(--display);font-weight:800;font-size:1.5rem;margin:30px 0 0">The renvoi</h2>
+    <p class="intro">Diderot's best trick, and the reason a dictionary could be dangerous. A <em>renvoi</em> is just a cross-reference, and the Encyclop&eacute;die is full of innocent ones &mdash; CLITORIS sends you to <b>Nymphes</b> because that is where the next bit of anatomy is. But in the article ENCYCLOP&Eacute;DIE, in volume 5 of 1755, Diderot set out a second kind.</p>
+    <p class="intro">An entry could be perfectly orthodox and still point somewhere that did the damage. The standard example is ANTHROPOPHAGES, cannibals, whose cross-references send the reader to <b>Autel</b>, <b>Communion</b> and <b>Eucharistie</b>. Nothing is stated. There is no sentence to prosecute. The reader assembles the insult themselves, a few hundred pages away, and the censor reading one entry at a time sees nothing at all.</p>
+
+    <h2 style="font-family:var(--display);font-weight:800;font-size:1.5rem;margin:30px 0 0">What it cost</h2>
+    <ul class="tl">
+      <li><b>1752</b><span>The royal council suppresses the first two volumes for subversive theology. Diderot keeps publishing.</span></li>
+      <li><b>1758</b><span>D'Alembert resigns as co-editor. Diderot carries the work alone for the next twenty-five years.</span></li>
+      <li><b>1759</b><span>The Paris Parlement condemns the work outright and the royal publishing privilege is revoked. Pope Clement XIII puts it on the Index.</span></li>
+      <li><b>1764</b><span>Diderot discovers that his own publisher, Le Breton, has been quietly cutting his articles behind his back &mdash; heaviest in <em>Sarrasins ou Arabes</em> and <em>Pyrrhonienne philosophie</em>, with <em>Tol&eacute;rance</em> and <em>Sectes du christianisme</em> dropped entirely. He never quite got over it.</span></li>
+      <li><b>1772</b><span>The last volume of plates. Twenty-five thousand sets sold, against every effort to stop it.</span></li>
+    </ul>
+
+    <footer>
+      Original text from the first edition via French Wikisource; article attributions, dates and volume numbers from ENCCRE at the Acad&eacute;mie des sciences and the ARTFL Encyclop&eacute;die Project at the University of Chicago; the publishing history from Wikipedia. The French is quoted from the 1751&ndash;72 edition and is long out of copyright. Translations and the editorial line are mine.
     </footer>
   </section>
 
@@ -769,6 +853,7 @@ render();
     dict:[$("tab-dict"), $("view-dict"), $("foot-dict")],
     cockney:[$("tab-cockney"), $("view-cockney")],
     love:[$("tab-love"), $("view-love")],
+    encyclopedie:[$("tab-encyclopedie"), $("view-encyclopedie")],
     palestine:[$("tab-palestine"), $("view-palestine")]
   };
   function show(name, push){
