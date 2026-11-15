@@ -69,9 +69,18 @@ label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;font-weight:50
 .wordrow{display:grid;grid-template-columns:minmax(110px,1fr) minmax(0,2.4fr);gap:2px 18px;padding:12px 16px;border-top:1px solid var(--rule);align-items:baseline}
 .wordrow:first-child{border-top:0}
 .lng{font-weight:600;color:var(--muted);font-size:.95rem}
-.wd{font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.25;overflow-wrap:anywhere}
+.wd{font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.25;overflow-wrap:anywhere;text-align:left}
 .wordrow .rom{font-size:.9rem}
 .wordrow .gloss{grid-column:2;margin-top:4px;font-size:.95rem;color:var(--muted)}
+.slangrow{display:grid;grid-template-columns:minmax(150px,1.3fr) minmax(0,2fr);gap:2px 18px;padding:11px 16px;border-top:1px solid var(--rule);align-items:baseline}
+.slangrow:first-child{border-top:0}
+.ph{font-family:var(--display);font-weight:500;font-size:1.18rem;line-height:1.25}
+.ph em{display:block;font-family:var(--body);font-style:normal;font-size:.78rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.ph em b{font-family:var(--display);font-size:.98rem;text-transform:none;letter-spacing:0;color:var(--accent);font-weight:800}
+.mn{font-size:1.05rem}
+.mn s{text-decoration:none;color:var(--muted);font-size:.9rem}
+.slangrow .gloss{grid-column:2;margin-top:3px;font-size:.92rem;color:var(--muted)}
+.az{position:sticky;top:0;z-index:4;background:var(--paper);padding:12px 0;border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .checked{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--everyday);margin-left:8px;white-space:nowrap}
 @media (max-width:480px){.wordrow{grid-template-columns:1fr}.wordrow .gloss{grid-column:1}}
 .tabs button{border:1.5px solid var(--rule);border-bottom:0;background:var(--paper);color:var(--muted);font-family:var(--display);font-weight:500;font-size:1.02rem;padding:9px 18px;border-radius:10px 10px 0 0;margin-bottom:-2px}
@@ -203,8 +212,181 @@ footer{border-top:1px solid var(--rule);padding:20px 0 40px;color:var(--muted);f
 
     <p class="intro"><strong>The same rhyme, other dressings.</strong> One rhyme word carries most of this vocabulary, and the phrases built on it are close to endless: Charlie Hunt (said as <em>Charlie</em>), Joe Hunt (<em>Joey</em>), Sir Anthony Blunt, sharp and blunt, eyes front, National Front and all quiet, from All Quiet on the Western Front. These come from a single survey of the word's history rather than from several independent records, so treat them as less firmly attested than the entries above.</p>
 
+    <h2 style="font-family:var(--display);font-weight:800;font-size:1.5rem;margin:30px 0 0">The rhyming slang A to Z</h2>
+    <p class="intro">The common corpus: 163 phrases that are actually said, or were. Each row gives the phrase, the clipped form people use in speech, and what it means. Search either side of the rhyme.</p>
+    <div class="az">
+      <input type="search" id="cq" placeholder="Search a phrase or a meaning" aria-label="Search the rhyming slang">
+      <span class="msg" id="ccount"></span>
+    </div>
+    <div class="entries" id="clist">
+      <div class="slangrow" data-k="adam and eve  believe would you adam and eve it?"><div class="ph">Adam and Eve</div><div class="mn">believe</div><p class="gloss">Would you Adam and Eve it?</p></div>
+      <div class="slangrow" data-k="almond rocks almonds socks "><div class="ph">almond rocks<em>says <b>almonds</b></em></div><div class="mn">socks</div></div>
+      <div class="slangrow" data-k="apples and pears apples stairs the one everybody knows, and the one real cockneys say least."><div class="ph">apples and pears<em>says <b>apples</b></em></div><div class="mn">stairs</div><p class="gloss">The one everybody knows, and the one real Cockneys say least.</p></div>
+      <div class="slangrow" data-k="aristotle aris bottle then bottle and glass gives arse, so aris is arse by two rhymes."><div class="ph">Aristotle<em>says <b>Aris</b></em></div><div class="mn">bottle</div><p class="gloss">Then bottle and glass gives arse, so Aris is arse by two rhymes.</p></div>
+      <div class="slangrow" data-k="army and navy  gravy "><div class="ph">army and navy</div><div class="mn">gravy</div></div>
+      <div class="slangrow" data-k="artful dodger  lodger "><div class="ph">Artful Dodger</div><div class="mn">lodger</div></div>
+      <div class="slangrow" data-k="ayrton senna ayrton tenner £10. coined after the driver's death in 1994."><div class="ph">Ayrton Senna<em>says <b>Ayrton</b></em></div><div class="mn">tenner</div><p class="gloss">£10. Coined after the driver's death in 1994.</p></div>
+      <div class="slangrow" data-k="bacon and eggs  legs "><div class="ph">bacon and eggs</div><div class="mn">legs</div></div>
+      <div class="slangrow" data-k="ball and chalk  walk "><div class="ph">ball and chalk</div><div class="mn">walk</div></div>
+      <div class="slangrow" data-k="barnet fair barnet hair so common that many users have no idea it is slang at all."><div class="ph">Barnet Fair<em>says <b>Barnet</b></em></div><div class="mn">hair</div><p class="gloss">So common that many users have no idea it is slang at all.</p></div>
+      <div class="slangrow" data-k="barney rubble barney trouble "><div class="ph">Barney Rubble<em>says <b>Barney</b></em></div><div class="mn">trouble</div></div>
+      <div class="slangrow" data-k="bath bun  son "><div class="ph">bath bun</div><div class="mn">son</div></div>
+      <div class="slangrow" data-k="battle cruiser battle boozer a pub."><div class="ph">battle cruiser<em>says <b>battle</b></em></div><div class="mn">boozer</div><p class="gloss">A pub.</p></div>
+      <div class="slangrow" data-k="bees and honey bees money "><div class="ph">bees and honey<em>says <b>bees</b></em></div><div class="mn">money</div></div>
+      <div class="slangrow" data-k="berkeley hunt berk cunt survives as a mild word for a fool, mild because the rhyme has been forgotten."><div class="ph">Berkeley Hunt<em>says <b>berk</b></em></div><div class="mn">cunt</div><p class="gloss">Survives as a mild word for a fool, mild because the rhyme has been forgotten.</p></div>
+      <div class="slangrow" data-k="bird lime bird time a prison sentence. doing bird."><div class="ph">bird lime<em>says <b>bird</b></em></div><div class="mn">time</div><p class="gloss">A prison sentence. Doing bird.</p></div>
+      <div class="slangrow" data-k="biscuits and cheese  knees "><div class="ph">biscuits and cheese</div><div class="mn">knees</div></div>
+      <div class="slangrow" data-k="boat race boat face "><div class="ph">boat race<em>says <b>boat</b></em></div><div class="mn">face</div></div>
+      <div class="slangrow" data-k="bob hope  soap "><div class="ph">Bob Hope</div><div class="mn">soap</div></div>
+      <div class="slangrow" data-k="boracic lint boracic skint said brassic. broke."><div class="ph">boracic lint<em>says <b>boracic</b></em></div><div class="mn">skint</div><p class="gloss">Said brassic. Broke.</p></div>
+      <div class="slangrow" data-k="bottle and glass bottle arse bottle also came to mean nerve, and losing your bottle is losing control of it."><div class="ph">bottle and glass<em>says <b>bottle</b></em></div><div class="mn">arse</div><p class="gloss">Bottle also came to mean nerve, and losing your bottle is losing control of it.</p></div>
+      <div class="slangrow" data-k="brahms and liszt brahms pissed drunk."><div class="ph">Brahms and Liszt<em>says <b>Brahms</b></em></div><div class="mn">pissed</div><p class="gloss">Drunk.</p></div>
+      <div class="slangrow" data-k="brass nail brass tail a prostitute."><div class="ph">brass nail<em>says <b>brass</b></em></div><div class="mn">tail</div><p class="gloss">A prostitute.</p></div>
+      <div class="slangrow" data-k="bread and honey bread money bread for money reached america and most of the english-speaking world."><div class="ph">bread and honey<em>says <b>bread</b></em></div><div class="mn">money</div><p class="gloss">Bread for money reached America and most of the English-speaking world.</p></div>
+      <div class="slangrow" data-k="bristol cities bristols titties "><div class="ph">Bristol Cities<em>says <b>Bristols</b></em></div><div class="mn">titties</div></div>
+      <div class="slangrow" data-k="britney spears britneys beers "><div class="ph">Britney Spears<em>says <b>Britneys</b></em></div><div class="mn">beers</div></div>
+      <div class="slangrow" data-k="brown bread  dead "><div class="ph">brown bread</div><div class="mn">dead</div></div>
+      <div class="slangrow" data-k="bubble and squeak bubble greek "><div class="ph">bubble and squeak<em>says <b>bubble</b></em></div><div class="mn">Greek</div></div>
+      <div class="slangrow" data-k="bubble bath bubble laugh you're having a bubble."><div class="ph">bubble bath<em>says <b>bubble</b></em></div><div class="mn">laugh</div><p class="gloss">You're having a bubble.</p></div>
+      <div class="slangrow" data-k="butcher's hook butcher's look have a butcher's at this."><div class="ph">butcher's hook<em>says <b>butcher's</b></em></div><div class="mn">look</div><p class="gloss">Have a butcher's at this.</p></div>
+      <div class="slangrow" data-k="cain and abel  table "><div class="ph">Cain and Abel</div><div class="mn">table</div></div>
+      <div class="slangrow" data-k="calvin klein calvin wine "><div class="ph">Calvin Klein<em>says <b>Calvin</b></em></div><div class="mn">wine</div></div>
+      <div class="slangrow" data-k="captain cook  look "><div class="ph">Captain Cook</div><div class="mn">look</div></div>
+      <div class="slangrow" data-k="chalfont st giles chalfonts piles haemorrhoids. farmer giles does the same job."><div class="ph">Chalfont St Giles<em>says <b>Chalfonts</b></em></div><div class="mn">piles</div><p class="gloss">Haemorrhoids. Farmer Giles does the same job.</p></div>
+      <div class="slangrow" data-k="chalk farm chalk arm "><div class="ph">chalk farm<em>says <b>chalk</b></em></div><div class="mn">arm</div></div>
+      <div class="slangrow" data-k="cheese and kisses  missus one's wife."><div class="ph">cheese and kisses</div><div class="mn">missus</div><p class="gloss">One's wife.</p></div>
+      <div class="slangrow" data-k="cherry hog  dog "><div class="ph">cherry hog</div><div class="mn">dog</div></div>
+      <div class="slangrow" data-k="china plate china mate my old china."><div class="ph">china plate<em>says <b>china</b></em></div><div class="mn">mate</div><p class="gloss">My old china.</p></div>
+      <div class="slangrow" data-k="claire rayners claires trainers "><div class="ph">Claire Rayners<em>says <b>Claires</b></em></div><div class="mn">trainers</div></div>
+      <div class="slangrow" data-k="cobbler's awls cobblers balls a load of cobblers is nonsense."><div class="ph">cobbler's awls<em>says <b>cobblers</b></em></div><div class="mn">balls</div><p class="gloss">A load of cobblers is nonsense.</p></div>
+      <div class="slangrow" data-k="cock and hen cockle ten £10."><div class="ph">cock and hen<em>says <b>cockle</b></em></div><div class="mn">ten</div><p class="gloss">£10.</p></div>
+      <div class="slangrow" data-k="cows and kisses  missus "><div class="ph">cows and kisses</div><div class="mn">missus</div></div>
+      <div class="slangrow" data-k="cream crackered cream crackered knackered exhausted."><div class="ph">cream crackered</div><div class="mn">knackered</div><p class="gloss">Exhausted.</p></div>
+      <div class="slangrow" data-k="crust of bread crust head "><div class="ph">crust of bread<em>says <b>crust</b></em></div><div class="mn">head</div></div>
+      <div class="slangrow" data-k="currant bun  sun also the sun newspaper."><div class="ph">currant bun</div><div class="mn">sun</div><p class="gloss">Also the Sun newspaper.</p></div>
+      <div class="slangrow" data-k="daisy roots daisies boots "><div class="ph">daisy roots<em>says <b>daisies</b></em></div><div class="mn">boots</div></div>
+      <div class="slangrow" data-k="darby and joan  moan "><div class="ph">Darby and Joan</div><div class="mn">moan</div></div>
+      <div class="slangrow" data-k="deep sea diver  fiver £5."><div class="ph">deep sea diver</div><div class="mn">fiver</div><p class="gloss">£5.</p></div>
+      <div class="slangrow" data-k="dicky bird dicky word not a dicky bird: not a word."><div class="ph">dicky bird<em>says <b>dicky</b></em></div><div class="mn">word</div><p class="gloss">Not a dicky bird: not a word.</p></div>
+      <div class="slangrow" data-k="dicky dirt dicky shirt "><div class="ph">dicky dirt<em>says <b>dicky</b></em></div><div class="mn">shirt</div></div>
+      <div class="slangrow" data-k="dog and bone dog phone "><div class="ph">dog and bone<em>says <b>dog</b></em></div><div class="mn">phone</div></div>
+      <div class="slangrow" data-k="donkey's ears donkey's years donkey's years, a very long time."><div class="ph">donkey's ears<em>says <b>donkey's</b></em></div><div class="mn">years</div><p class="gloss">Donkey's years, a very long time.</p></div>
+      <div class="slangrow" data-k="duchess of fife dutch wife my old dutch."><div class="ph">Duchess of Fife<em>says <b>Dutch</b></em></div><div class="mn">wife</div><p class="gloss">My old Dutch.</p></div>
+      <div class="slangrow" data-k="duke of kent  rent "><div class="ph">Duke of Kent</div><div class="mn">rent</div></div>
+      <div class="slangrow" data-k="duke of york  walk "><div class="ph">Duke of York</div><div class="mn">walk</div></div>
+      <div class="slangrow" data-k="dustbin lids dustbins kids also god forbids and saucepan lid."><div class="ph">dustbin lids<em>says <b>dustbins</b></em></div><div class="mn">kids</div><p class="gloss">Also God forbids and saucepan lid.</p></div>
+      <div class="slangrow" data-k="elephant's trunk elephants drunk "><div class="ph">elephant's trunk<em>says <b>elephants</b></em></div><div class="mn">drunk</div></div>
+      <div class="slangrow" data-k="errol flynn errol chin "><div class="ph">Errol Flynn<em>says <b>Errol</b></em></div><div class="mn">chin</div></div>
+      <div class="slangrow" data-k="field of wheat  street "><div class="ph">field of wheat</div><div class="mn">street</div></div>
+      <div class="slangrow" data-k="finger and thumb  rum "><div class="ph">finger and thumb</div><div class="mn">rum</div></div>
+      <div class="slangrow" data-k="fisherman's daughter  water "><div class="ph">fisherman's daughter</div><div class="mn">water</div></div>
+      <div class="slangrow" data-k="flowery dell flowery cell a prison cell."><div class="ph">flowery dell<em>says <b>flowery</b></em></div><div class="mn">cell</div><p class="gloss">A prison cell.</p></div>
+      <div class="slangrow" data-k="frog and toad frog road "><div class="ph">frog and toad<em>says <b>frog</b></em></div><div class="mn">road</div></div>
+      <div class="slangrow" data-k="george raft  draught a draught of air."><div class="ph">George Raft</div><div class="mn">draught</div><p class="gloss">A draught of air.</p></div>
+      <div class="slangrow" data-k="german bands germans hands "><div class="ph">German bands<em>says <b>Germans</b></em></div><div class="mn">hands</div></div>
+      <div class="slangrow" data-k="ginger beer ginger queer "><div class="ph">ginger beer<em>says <b>ginger</b></em></div><div class="mn">queer</div></div>
+      <div class="slangrow" data-k="gold watch  scotch whisky."><div class="ph">gold watch</div><div class="mn">Scotch</div><p class="gloss">Whisky.</p></div>
+      <div class="slangrow" data-k="grasshopper grasshopper copper a policeman. shortened to grass, which became the word for an informer."><div class="ph">grasshopper</div><div class="mn">copper</div><p class="gloss">A policeman. Shortened to grass, which became the word for an informer.</p></div>
+      <div class="slangrow" data-k="gregory peck gregory neck also a cheque."><div class="ph">Gregory Peck<em>says <b>Gregory</b></em></div><div class="mn">neck</div><p class="gloss">Also a cheque.</p></div>
+      <div class="slangrow" data-k="grumble and grunt grumble cunt grumble on its own drifted to mean pornography."><div class="ph">grumble and grunt<em>says <b>grumble</b></em></div><div class="mn">cunt</div><p class="gloss">Grumble on its own drifted to mean pornography.</p></div>
+      <div class="slangrow" data-k="gunga din  chin "><div class="ph">Gunga Din</div><div class="mn">chin</div></div>
+      <div class="slangrow" data-k="half-inch  pinch to steal."><div class="ph">half-inch</div><div class="mn">pinch</div><p class="gloss">To steal.</p></div>
+      <div class="slangrow" data-k="hampstead heath hampsteads teeth "><div class="ph">Hampstead Heath<em>says <b>Hampsteads</b></em></div><div class="mn">teeth</div></div>
+      <div class="slangrow" data-k="hampton wick hampton prick and getting on your wick comes from the same phrase."><div class="ph">Hampton Wick<em>says <b>Hampton</b></em></div><div class="mn">prick</div><p class="gloss">And getting on your wick comes from the same phrase.</p></div>
+      <div class="slangrow" data-k="hank marvin hank marvin starving the shadows guitarist. lee marvin does the same work."><div class="ph">Hank Marvin</div><div class="mn">starving</div><p class="gloss">The Shadows guitarist. Lee Marvin does the same work.</p></div>
+      <div class="slangrow" data-k="holy ghost  toast "><div class="ph">holy ghost</div><div class="mn">toast</div></div>
+      <div class="slangrow" data-k="horse and cart  fart "><div class="ph">horse and cart</div><div class="mn">fart</div></div>
+      <div class="slangrow" data-k="i suppose  nose "><div class="ph">I suppose</div><div class="mn">nose</div></div>
+      <div class="slangrow" data-k="irish jig irish wig "><div class="ph">Irish jig<em>says <b>Irish</b></em></div><div class="mn">wig</div></div>
+      <div class="slangrow" data-k="iron hoof iron poof "><div class="ph">iron hoof<em>says <b>iron</b></em></div><div class="mn">poof</div></div>
+      <div class="slangrow" data-k="jack and danny jack fanny the vulva. also the tamer sense of fanny, meaning waffle."><div class="ph">Jack and Danny<em>says <b>jack</b></em></div><div class="mn">fanny</div><p class="gloss">The vulva. Also the tamer sense of fanny, meaning waffle.</p></div>
+      <div class="slangrow" data-k="jack jones jack alone on my jack jones."><div class="ph">Jack Jones<em>says <b>Jack</b></em></div><div class="mn">alone</div><p class="gloss">On my Jack Jones.</p></div>
+      <div class="slangrow" data-k="jack the ripper  kipper also slipper."><div class="ph">Jack the Ripper</div><div class="mn">kipper</div><p class="gloss">Also slipper.</p></div>
+      <div class="slangrow" data-k="jackson pollocks jacksons bollocks "><div class="ph">Jackson Pollocks<em>says <b>Jacksons</b></em></div><div class="mn">bollocks</div></div>
+      <div class="slangrow" data-k="jacob's crackers jacobs knackers testicles."><div class="ph">Jacob's crackers<em>says <b>Jacobs</b></em></div><div class="mn">knackers</div><p class="gloss">Testicles.</p></div>
+      <div class="slangrow" data-k="jam jar  car "><div class="ph">jam jar</div><div class="mn">car</div></div>
+      <div class="slangrow" data-k="jam tart  heart "><div class="ph">jam tart</div><div class="mn">heart</div></div>
+      <div class="slangrow" data-k="jimmy riddle jimmy piddle to urinate."><div class="ph">Jimmy Riddle<em>says <b>Jimmy</b></em></div><div class="mn">piddle</div><p class="gloss">To urinate.</p></div>
+      <div class="slangrow" data-k="joanna  piano works on the old pronunciation, pi-anna."><div class="ph">Joanna</div><div class="mn">piano</div><p class="gloss">Works on the old pronunciation, pi-anna.</p></div>
+      <div class="slangrow" data-k="jugs of beer jugs ears "><div class="ph">jugs of beer<em>says <b>jugs</b></em></div><div class="mn">ears</div></div>
+      <div class="slangrow" data-k="khyber pass khyber arse up the khyber."><div class="ph">Khyber Pass<em>says <b>Khyber</b></em></div><div class="mn">arse</div><p class="gloss">Up the Khyber.</p></div>
+      <div class="slangrow" data-k="kick and prance  dance "><div class="ph">kick and prance</div><div class="mn">dance</div></div>
+      <div class="slangrow" data-k="king lear  ear "><div class="ph">King Lear</div><div class="mn">ear</div></div>
+      <div class="slangrow" data-k="lady godiva  fiver £5."><div class="ph">Lady Godiva</div><div class="mn">fiver</div><p class="gloss">£5.</p></div>
+      <div class="slangrow" data-k="linen draper  paper a newspaper."><div class="ph">linen draper</div><div class="mn">paper</div><p class="gloss">A newspaper.</p></div>
+      <div class="slangrow" data-k="lionel blairs lionels flares flared trousers, after the dancer."><div class="ph">Lionel Blairs<em>says <b>Lionels</b></em></div><div class="mn">flares</div><p class="gloss">Flared trousers, after the dancer.</p></div>
+      <div class="slangrow" data-k="loaf of bread loaf head use your loaf."><div class="ph">loaf of bread<em>says <b>loaf</b></em></div><div class="mn">head</div><p class="gloss">Use your loaf.</p></div>
+      <div class="slangrow" data-k="loop the loop  soup "><div class="ph">loop the loop</div><div class="mn">soup</div></div>
+      <div class="slangrow" data-k="lucy locket  pocket "><div class="ph">Lucy Locket</div><div class="mn">pocket</div></div>
+      <div class="slangrow" data-k="lump of lead  head "><div class="ph">lump of lead</div><div class="mn">head</div></div>
+      <div class="slangrow" data-k="mariah carey mariah scary "><div class="ph">Mariah Carey<em>says <b>Mariah</b></em></div><div class="mn">scary</div></div>
+      <div class="slangrow" data-k="mickey bliss mickey piss taking the mickey."><div class="ph">Mickey Bliss<em>says <b>Mickey</b></em></div><div class="mn">piss</div><p class="gloss">Taking the Mickey.</p></div>
+      <div class="slangrow" data-k="mince pies minces eyes "><div class="ph">mince pies<em>says <b>minces</b></em></div><div class="mn">eyes</div></div>
+      <div class="slangrow" data-k="mutt and jeff mutton deaf after the american comic strip."><div class="ph">Mutt and Jeff<em>says <b>mutton</b></em></div><div class="mn">deaf</div><p class="gloss">After the American comic strip.</p></div>
+      <div class="slangrow" data-k="nanny goat nanny coat "><div class="ph">nanny goat<em>says <b>nanny</b></em></div><div class="mn">coat</div></div>
+      <div class="slangrow" data-k="nelson mandela nelson stella the lager."><div class="ph">Nelson Mandela<em>says <b>Nelson</b></em></div><div class="mn">Stella</div><p class="gloss">The lager.</p></div>
+      <div class="slangrow" data-k="niagara falls niagaras balls "><div class="ph">Niagara Falls<em>says <b>Niagaras</b></em></div><div class="mn">balls</div></div>
+      <div class="slangrow" data-k="noah's ark noah's nark a police informer."><div class="ph">Noah's ark<em>says <b>Noah's</b></em></div><div class="mn">nark</div><p class="gloss">A police informer.</p></div>
+      <div class="slangrow" data-k="north and south north mouth carried by harry champion's 1906 song what a mouth."><div class="ph">north and south<em>says <b>north</b></em></div><div class="mn">mouth</div><p class="gloss">Carried by Harry Champion's 1906 song What a Mouth.</p></div>
+      <div class="slangrow" data-k="oily rag oily fag a cigarette."><div class="ph">oily rag<em>says <b>oily</b></em></div><div class="mn">fag</div><p class="gloss">A cigarette.</p></div>
+      <div class="slangrow" data-k="on the floor  poor "><div class="ph">on the floor</div><div class="mn">poor</div></div>
+      <div class="slangrow" data-k="orchestra stalls orchestras balls "><div class="ph">orchestra stalls<em>says <b>orchestras</b></em></div><div class="mn">balls</div></div>
+      <div class="slangrow" data-k="oxford scholar oxford dollar "><div class="ph">Oxford scholar<em>says <b>Oxford</b></em></div><div class="mn">dollar</div></div>
+      <div class="slangrow" data-k="oxo cube oxo tube the underground."><div class="ph">Oxo cube<em>says <b>Oxo</b></em></div><div class="mn">tube</div><p class="gloss">The Underground.</p></div>
+      <div class="slangrow" data-k="peckham rye peckham tie "><div class="ph">Peckham Rye<em>says <b>Peckham</b></em></div><div class="mn">tie</div></div>
+      <div class="slangrow" data-k="pen and ink  stink "><div class="ph">pen and ink</div><div class="mn">stink</div></div>
+      <div class="slangrow" data-k="pete tong pete tong wrong it's all gone pete tong. after the radio dj, and the newest entry here to have properly stuck."><div class="ph">Pete Tong</div><div class="mn">wrong</div><p class="gloss">It's all gone Pete Tong. After the radio DJ, and the newest entry here to have properly stuck.</p></div>
+      <div class="slangrow" data-k="pig's ear  beer "><div class="ph">pig's ear</div><div class="mn">beer</div></div>
+      <div class="slangrow" data-k="pipe and drum  bum "><div class="ph">pipe and drum</div><div class="mn">bum</div></div>
+      <div class="slangrow" data-k="plate of ham plate gam oral sex. gam is a worn-down french gamahucher."><div class="ph">plate of ham<em>says <b>plate</b></em></div><div class="mn">gam</div><p class="gloss">Oral sex. Gam is a worn-down French gamahucher.</p></div>
+      <div class="slangrow" data-k="plates of meat plates feet "><div class="ph">plates of meat<em>says <b>plates</b></em></div><div class="mn">feet</div></div>
+      <div class="slangrow" data-k="pleasure and pain  rain "><div class="ph">pleasure and pain</div><div class="mn">rain</div></div>
+      <div class="slangrow" data-k="pony and trap pony crap a pony also means £25, but that comes from elsewhere."><div class="ph">pony and trap<em>says <b>pony</b></em></div><div class="mn">crap</div><p class="gloss">A pony also means £25, but that comes from elsewhere.</p></div>
+      <div class="slangrow" data-k="pork pies porkies lies he's telling porkies."><div class="ph">pork pies<em>says <b>porkies</b></em></div><div class="mn">lies</div><p class="gloss">He's telling porkies.</p></div>
+      <div class="slangrow" data-k="posh and becks  sex "><div class="ph">Posh and Becks</div><div class="mn">sex</div></div>
+      <div class="slangrow" data-k="rabbit and pork rabbit talk rabbiting on. bunny means talk too, by way of rabbit."><div class="ph">rabbit and pork<em>says <b>rabbit</b></em></div><div class="mn">talk</div><p class="gloss">Rabbiting on. Bunny means talk too, by way of rabbit.</p></div>
+      <div class="slangrow" data-k="raspberry ripple  nipple also cripple."><div class="ph">raspberry ripple</div><div class="mn">nipple</div><p class="gloss">Also cripple.</p></div>
+      <div class="slangrow" data-k="raspberry tart raspberry fart blowing a raspberry."><div class="ph">raspberry tart<em>says <b>raspberry</b></em></div><div class="mn">fart</div><p class="gloss">Blowing a raspberry.</p></div>
+      <div class="slangrow" data-k="richard the third richard bird a woman. also a turd, which the same phrase covers."><div class="ph">Richard the Third<em>says <b>Richard</b></em></div><div class="mn">bird</div><p class="gloss">A woman. Also a turd, which the same phrase covers.</p></div>
+      <div class="slangrow" data-k="rosy lee rosy tea "><div class="ph">rosy lee<em>says <b>rosy</b></em></div><div class="mn">tea</div></div>
+      <div class="slangrow" data-k="round the houses rounds trousers "><div class="ph">round the houses<em>says <b>rounds</b></em></div><div class="mn">trousers</div></div>
+      <div class="slangrow" data-k="rub-a-dub-dub rub-a-dub pub "><div class="ph">rub-a-dub-dub<em>says <b>rub-a-dub</b></em></div><div class="mn">pub</div></div>
+      <div class="slangrow" data-k="ruby murray ruby curry after the belfast singer. going for a ruby."><div class="ph">Ruby Murray<em>says <b>Ruby</b></em></div><div class="mn">curry</div><p class="gloss">After the Belfast singer. Going for a Ruby.</p></div>
+      <div class="slangrow" data-k="salmon and trout salmon snout tobacco."><div class="ph">salmon and trout<em>says <b>salmon</b></em></div><div class="mn">snout</div><p class="gloss">Tobacco.</p></div>
+      <div class="slangrow" data-k="saucepan lid  quid £1. also a kid."><div class="ph">saucepan lid</div><div class="mn">quid</div><p class="gloss">£1. Also a kid.</p></div>
+      <div class="slangrow" data-k="sausage and mash sausage cash "><div class="ph">sausage and mash<em>says <b>sausage</b></em></div><div class="mn">cash</div></div>
+      <div class="slangrow" data-k="scapa flow scarper go to run away. the italian scappare may have helped it along."><div class="ph">Scapa Flow<em>says <b>scarper</b></em></div><div class="mn">go</div><p class="gloss">To run away. The Italian scappare may have helped it along.</p></div>
+      <div class="slangrow" data-k="scotch eggs  legs "><div class="ph">Scotch eggs</div><div class="mn">legs</div></div>
+      <div class="slangrow" data-k="septic tank septic yank an american."><div class="ph">septic tank<em>says <b>septic</b></em></div><div class="mn">Yank</div><p class="gloss">An American.</p></div>
+      <div class="slangrow" data-k="sherbet dab sherbet cab "><div class="ph">sherbet dab<em>says <b>sherbet</b></em></div><div class="mn">cab</div></div>
+      <div class="slangrow" data-k="skin and blister skin sister "><div class="ph">skin and blister<em>says <b>skin</b></em></div><div class="mn">sister</div></div>
+      <div class="slangrow" data-k="sky rocket sky pocket "><div class="ph">sky rocket<em>says <b>sky</b></em></div><div class="mn">pocket</div></div>
+      <div class="slangrow" data-k="sorrowful tale  jail three months in jail, in the older version."><div class="ph">sorrowful tale</div><div class="mn">jail</div><p class="gloss">Three months in jail, in the older version.</p></div>
+      <div class="slangrow" data-k="stand at ease  cheese "><div class="ph">stand at ease</div><div class="mn">cheese</div></div>
+      <div class="slangrow" data-k="sweeney todd sweeney flying squad it gave the 1970s police series its name."><div class="ph">Sweeney Todd<em>says <b>Sweeney</b></em></div><div class="mn">Flying Squad</div><p class="gloss">It gave the 1970s police series its name.</p></div>
+      <div class="slangrow" data-k="syrup of figs syrup wig "><div class="ph">syrup of figs<em>says <b>syrup</b></em></div><div class="mn">wig</div></div>
+      <div class="slangrow" data-k="taters in the mould taters cold "><div class="ph">taters in the mould<em>says <b>taters</b></em></div><div class="mn">cold</div></div>
+      <div class="slangrow" data-k="tea leaf  thief "><div class="ph">tea leaf</div><div class="mn">thief</div></div>
+      <div class="slangrow" data-k="threepenny bits thruppennies tits "><div class="ph">threepenny bits<em>says <b>thruppennies</b></em></div><div class="mn">tits</div></div>
+      <div class="slangrow" data-k="tit for tat titfer hat "><div class="ph">tit for tat<em>says <b>titfer</b></em></div><div class="mn">hat</div></div>
+      <div class="slangrow" data-k="tod sloan tod alone on your tod. after the american jockey."><div class="ph">Tod Sloan<em>says <b>tod</b></em></div><div class="mn">alone</div><p class="gloss">On your tod. After the American jockey.</p></div>
+      <div class="slangrow" data-k="tom and dick  sick "><div class="ph">Tom and Dick</div><div class="mn">sick</div></div>
+      <div class="slangrow" data-k="tom tit  shit "><div class="ph">Tom tit</div><div class="mn">shit</div></div>
+      <div class="slangrow" data-k="tomfoolery tom jewellery "><div class="ph">tomfoolery<em>says <b>tom</b></em></div><div class="mn">jewellery</div></div>
+      <div class="slangrow" data-k="trouble and strife trouble wife "><div class="ph">trouble and strife<em>says <b>trouble</b></em></div><div class="mn">wife</div></div>
+      <div class="slangrow" data-k="turtle doves turtles gloves "><div class="ph">turtle doves<em>says <b>turtles</b></em></div><div class="mn">gloves</div></div>
+      <div class="slangrow" data-k="two and eight  state in a right two and eight."><div class="ph">two and eight</div><div class="mn">state</div><p class="gloss">In a right two and eight.</p></div>
+      <div class="slangrow" data-k="uncle ned  bed "><div class="ph">Uncle Ned</div><div class="mn">bed</div></div>
+      <div class="slangrow" data-k="vera lynn vera gin also skin, meaning a cigarette paper."><div class="ph">Vera Lynn<em>says <b>Vera</b></em></div><div class="mn">gin</div><p class="gloss">Also skin, meaning a cigarette paper.</p></div>
+      <div class="slangrow" data-k="weasel and stoat weasel coat "><div class="ph">weasel and stoat<em>says <b>weasel</b></em></div><div class="mn">coat</div></div>
+      <div class="slangrow" data-k="whistle and flute whistle suit "><div class="ph">whistle and flute<em>says <b>whistle</b></em></div><div class="mn">suit</div></div>
+      <div class="slangrow" data-k="winona ryder winona cider "><div class="ph">Winona Ryder<em>says <b>Winona</b></em></div><div class="mn">cider</div></div>
+      <div class="slangrow" data-k="you and me  tea "><div class="ph">you and me</div><div class="mn">tea</div></div>
+    </div>
+    <p class="msg" id="cempty" hidden style="padding:30px 0">Nothing matches. Clear the search.</p>
+
     <footer>
-      Sources: Brewer's Dictionary of London Phrase &amp; Fable via Oxford Reference, Green's Dictionary of Slang, Julian Franklyn's A Dictionary of Rhyming Slang, and Wikipedia on the Berkeley Hunt. Rhyming slang is spoken rather than written, so datings are approximate and usage varies.
+      This is the well-established corpus rather than a complete dictionary: published collections such as Julian Franklyn's and Green's run to several thousand entries, many of them local, one-off or invented for a book, and copying one of those wholesale is not mine to do. Sources for the entries above: Brewer's Dictionary of London Phrase &amp; Fable via Oxford Reference, Green's Dictionary of Slang, Franklyn's A Dictionary of Rhyming Slang and Wikipedia. Rhyming slang is spoken far more than written, so spellings vary and most datings are approximate.
     </footer>
   </section>
 
@@ -599,6 +781,23 @@ render();
   for(const k in tabs) tabs[k][0].addEventListener("click", () => show(k, true));
   window.addEventListener("hashchange", () => show(location.hash.slice(1) || "dict", false));
   show(location.hash.slice(1) || "dict", false);
+})();
+
+(function(){
+  const box = $("cq"), list = $("clist"), empty = $("cempty"), count = $("ccount");
+  if(!box) return;
+  const rows = [...list.children];
+  const total = rows.length;
+  function run(){
+    const q = box.value.trim().toLowerCase();
+    let n = 0;
+    rows.forEach(r => { const on = !q || r.dataset.k.includes(q); r.hidden = !on; if(on) n++; });
+    empty.hidden = n > 0;
+    list.hidden = n === 0;
+    count.textContent = q ? n + (n === 1 ? " phrase" : " phrases") : total + " phrases";
+  }
+  box.addEventListener("input", run);
+  run();
 })();
 
 (async () => {
