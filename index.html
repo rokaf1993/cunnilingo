@@ -84,6 +84,9 @@ label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;font-weight:50
 .checked{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--everyday);margin-left:8px;white-space:nowrap}
 @media (max-width:480px){.wordrow{grid-template-columns:1fr}.wordrow .gloss{grid-column:1}}
 .tabs button{border:1.5px solid var(--rule);border-bottom:0;background:var(--paper);color:var(--muted);font-family:var(--display);font-weight:500;font-size:1.02rem;padding:9px 18px;border-radius:10px 10px 0 0;margin-bottom:-2px}
+.tabs .tablink{border:1.5px solid var(--rule);border-bottom:0;background:var(--paper);color:var(--accent);font-family:var(--display);font-weight:500;font-size:1.02rem;padding:9px 18px;border-radius:10px 10px 0 0;margin-bottom:-2px;text-decoration:none;margin-left:auto}
+.tabs .tablink:hover{color:var(--ink)}
+@media (max-width:560px){.tabs .tablink{margin-left:0}}
 .tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);font-weight:800}
 .intro{margin:18px 0 0;max-width:62ch}
 .chain{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;color:var(--muted);font-size:.95rem;margin-top:2px}
@@ -129,6 +132,7 @@ footer{border-top:1px solid var(--rule);padding:20px 0 40px;color:var(--muted);f
     <button type="button" role="tab" id="tab-cockney" aria-controls="view-cockney" aria-selected="false">Cockney</button>
     <button type="button" role="tab" id="tab-love" aria-controls="view-love" aria-selected="false">Love</button>
     <button type="button" role="tab" id="tab-palestine" aria-controls="view-palestine" aria-selected="false">Free Palestine</button>
+    <a class="tablink" href="/cunt/">The c-word &rarr;</a>
   </nav>
 
   <div id="view-dict" role="tabpanel" aria-labelledby="tab-dict">

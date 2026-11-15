@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The word in every language</title>
+<meta name="description" content="The blunt word for the vulva in 82 languages, with romanisation, register notes and the three word families it falls into.">
+<link rel="canonical" href="https://cunnilingo.org/cunt/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: the phrasebook page, turned to one entry. Families first, then the list. */
+:root{
+  --paper:#eef3f1; --sheet:#ffffff; --ink:#2a1433; --muted:#6c5a75; --rule:#d5dedb;
+  --accent:#d81e6f; --accent-ink:#ffffff;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI","Noto Sans","Noto Sans CJK SC","Noto Sans Arabic","Noto Sans Hebrew","Noto Sans Devanagari",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1b1220; --sheet:#261a2d; --ink:#f3e9f4; --muted:#b29fb9; --rule:#3d2c46;
+    --accent:#ff5c9d; --accent-ink:#2a0a1a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1b1220; --sheet:#261a2d; --ink:#f3e9f4; --muted:#b29fb9; --rule:#3d2c46;
+  --accent:#ff5c9d; --accent-ink:#2a0a1a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+.back{display:inline-block;margin-top:24px;font-size:.9rem;font-weight:600;color:var(--muted)}
+header{padding:14px 0 20px;display:flex;flex-direction:column;gap:14px}
+.mark{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,8vw,4rem);line-height:.95;letter-spacing:-.03em;margin:0}
+.mark span{color:var(--accent)}
+.tag{font-size:1.1rem;max-width:36em;margin:0;color:var(--muted)}
+h2{font-family:var(--display);font-weight:800;font-size:1.45rem;margin:30px 0 8px;text-wrap:balance}
+.fam{background:var(--sheet);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;margin-top:12px}
+.fam h3{font-family:var(--display);font-weight:800;font-size:1.1rem;margin:0 0 4px}
+.fam p{margin:0;max-width:66ch}
+.fam .root{font-family:var(--display);color:var(--accent);font-weight:800}
+.fams{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.az{position:sticky;top:0;z-index:4;background:var(--paper);padding:12px 0;border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+input[type=search]{font:inherit;color:var(--ink);background:var(--sheet);border:1.5px solid var(--rule);border-radius:10px;padding:10px 12px;flex:1 1 240px;min-width:0}
+.msg{font-size:.9rem;color:var(--muted);margin:0}
+.list{background:var(--sheet);border:1px solid var(--rule);border-radius:14px;overflow:hidden;margin-top:14px}
+.row2{display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:2px 18px;padding:12px 16px;border-top:1px solid var(--rule);align-items:baseline}
+.row2:first-child{border-top:0}
+.lng{font-weight:600;color:var(--muted);font-size:.95rem}
+.wd{font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.25;overflow-wrap:anywhere;text-align:left}
+.rom{color:var(--muted);font-style:italic;font-size:.9rem}
+.var{color:var(--muted);font-size:.85rem;margin-top:2px}
+.gloss{grid-column:2;margin:4px 0 0;font-size:.93rem;color:var(--muted);max-width:62ch}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+footer{border-top:1px solid var(--rule);margin-top:26px;padding:18px 0 48px;color:var(--muted);font-size:.88rem;max-width:68ch}
+a{color:var(--accent)}
+@media (max-width:480px){.row2{grid-template-columns:1fr}.gloss{grid-column:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">&larr; cunnilingo</a>
+  <header>
+    <h1 class="mark">the <span>c-word</span></h1>
+    <p class="tag">The blunt word for the vulva in 82 languages, with what it actually costs to say it. The same syllable is a career-ending insult in one country and a greeting in another.</p>
+  </header>
+
+  <h2>Three families, one idea</h2>
+  <div class="fams">
+    <div class="fam">
+      <h3>The <span class="root">pizda</span> family</h3>
+      <p>Russian, Polish, Czech, Serbo-Croatian, Lithuanian, Latvian, Albanian and, by borrowing, Romanian. All descend from Proto-Indo-European <em>*písdeh&#8322;</em>, built from <em>*h&#8321;epi</em> (upon) and <em>*sed-</em> (to sit): the thing one sits upon. Old Prussian <em>peisda</em> and Persian <em>pīzī</em> kept that sense and came out meaning arse.</p>
+    </div>
+    <div class="fam">
+      <h3>The <span class="root">kunta</span> family</h3>
+      <p>English <em>cunt</em> goes back through Middle English <em>cunte</em> and <em>queynte</em> to Proto-Germanic <em>*kuntǭ</em>, with Faroese and Icelandic <em>kunta</em> and West Frisian <em>kunte</em> alongside it. Middle Dutch <em>conte</em> produced modern Dutch <em>kont</em>, which now just means backside.</p>
+    </div>
+    <div class="fam">
+      <h3>The <span class="root">fitta</span> family</h3>
+      <p>Swedish and Norwegian <em>fitta</em>, Danish <em>fisse</em>, Finnish and Estonian <em>vittu</em> and <em>vitt</em>. The Norse origin is disputed and most likely runs back to Old Norse <em>fuð</em>. Finnish is not a Germanic language at all, which makes its membership a borrowing rather than an inheritance.</p>
+    </div>
+    <div class="fam">
+      <h3>The outliers</h3>
+      <p>Latin <em>cunnus</em> looks like the English word and may have nothing to do with it; the link has never been shown, and Partridge preferred <em>cuneus</em>, a wedge. Turkic <em>am</em> runs unbroken from Turkish to Uzbek. Hebrew <em>kus</em> shares its form with Arabic.</p>
+    </div>
+  </div>
+
+  <h2>Every language</h2>
+  <div class="az">
+    <input type="search" id="q" placeholder="Search a language or a word" aria-label="Search">
+    <span class="msg" id="count"></span>
+  </div>
+  <div class="list" id="list">
+      <div class="row2" data-k="afrikaans poes  kont, doos "><div class="lng">Afrikaans</div><div><div class="wd">poes</div><div class="var">also kont, doos</div></div></div>
+      <div class="row2" data-k="akan ɛtwɛ   "><div class="lng">Akan</div><div><div class="wd">ɛtwɛ</div></div></div>
+      <div class="row2" data-k="albanian pidh  piçkë cousin to the slavic pizda rather than a borrowing from it: both descend from the same indo-european root."><div class="lng">Albanian</div><div><div class="wd">pidh</div><div class="var">also piçkë</div></div><p class="gloss">Cousin to the Slavic pizda rather than a borrowing from it: both descend from the same Indo-European root.</p></div>
+      <div class="row2" data-k="arabic كُس kus كِس (kis) "><div class="lng">Arabic</div><div><div class="wd" lang="ar">كُس</div><div class="rom">kus</div><div class="var">also كِس (kis)</div></div></div>
+      <div class="row2" data-k="armenian պուց pucʻ  "><div class="lng">Armenian</div><div><div class="wd">պուց</div><div class="rom">pucʻ</div></div></div>
+      <div class="row2" data-k="azerbaijani am  amcıq, dıllaq, dındıq one of seven turkic languages on this page using am."><div class="lng">Azerbaijani</div><div><div class="wd">am</div><div class="var">also amcıq, dıllaq, dındıq</div></div><p class="gloss">One of seven Turkic languages on this page using am.</p></div>
+      <div class="row2" data-k="belarusian пізда pizdá  "><div class="lng">Belarusian</div><div><div class="wd">пізда</div><div class="rom">pizdá</div></div></div>
+      <div class="row2" data-k="bulgarian путка pútka пичка (píčka) "><div class="lng">Bulgarian</div><div><div class="wd">путка</div><div class="rom">pútka</div><div class="var">also пичка (píčka)</div></div></div>
+      <div class="row2" data-k="catalan cony   "><div class="lng">Catalan</div><div><div class="wd">cony</div></div></div>
+      <div class="row2" data-k="chinese, cantonese 閪 hai¹ 屄 (bei¹) "><div class="lng">Chinese, Cantonese</div><div><div class="wd">閪</div><div class="rom">hai¹</div><div class="var">also 屄 (bei¹)</div></div></div>
+      <div class="row2" data-k="chinese, mandarin 屄 bī 逼 (bī), 雞掰 (jībāi) 逼 is the everyday stand-in: same sound, ordinary character, slips past both the keyboard and the censor."><div class="lng">Chinese, Mandarin</div><div><div class="wd">屄</div><div class="rom">bī</div><div class="var">also 逼 (bī), 雞掰 (jībāi)</div></div><p class="gloss">逼 is the everyday stand-in: same sound, ordinary character, slips past both the keyboard and the censor.</p></div>
+      <div class="row2" data-k="corsican chjichja   "><div class="lng">Corsican</div><div><div class="wd">chjichja</div></div></div>
+      <div class="row2" data-k="czech píča  kunda, pizda "><div class="lng">Czech</div><div><div class="wd">píča</div><div class="var">also kunda, pizda</div></div></div>
+      <div class="row2" data-k="danish kusse  fisse "><div class="lng">Danish</div><div><div class="wd">kusse</div><div class="var">also fisse</div></div></div>
+      <div class="row2" data-k="dutch kut   mild by english standards. it is an everyday expletive, closer to damn than to the english word."><div class="lng">Dutch</div><div><div class="wd">kut</div></div><p class="gloss">Mild by English standards. It is an everyday expletive, closer to damn than to the English word.</p></div>
+      <div class="row2" data-k="english cunt   the strongest word in american english, and in parts of scotland, ireland and australia one of the friendliest things one man can call another."><div class="lng">English</div><div><div class="wd">cunt</div></div><p class="gloss">The strongest word in American English, and in parts of Scotland, Ireland and Australia one of the friendliest things one man can call another.</p></div>
+      <div class="row2" data-k="english, middle queynte  cunte, quoniam, privitee chaucer's spelling in the wife of bath's prologue, where it is coarse but not unprintable."><div class="lng">English, Middle</div><div><div class="wd">queynte</div><div class="var">also cunte, quoniam, privitee</div></div><p class="gloss">Chaucer's spelling in The Wife of Bath's Prologue, where it is coarse but not unprintable.</p></div>
+      <div class="row2" data-k="esperanto piĉo   zamenhof designed a language for universal brotherhood. it acquired one of these anyway."><div class="lng">Esperanto</div><div><div class="wd">piĉo</div></div><p class="gloss">Zamenhof designed a language for universal brotherhood. It acquired one of these anyway.</p></div>
+      <div class="row2" data-k="estonian vitt  puts, tuss shares the word with finnish across the gulf."><div class="lng">Estonian</div><div><div class="wd">vitt</div><div class="var">also puts, tuss</div></div><p class="gloss">Shares the word with Finnish across the Gulf.</p></div>
+      <div class="row2" data-k="faroese kunta  kusa, pill, lall a norse cousin of the english word."><div class="lng">Faroese</div><div><div class="wd">kunta</div><div class="var">also kusa, pill, lall</div></div><p class="gloss">A Norse cousin of the English word.</p></div>
+      <div class="row2" data-k="finnish vittu   the all-purpose finnish swear, inflected and compounded in every direction. the anatomical sense is almost beside the point in daily use."><div class="lng">Finnish</div><div><div class="wd">vittu</div></div><p class="gloss">The all-purpose Finnish swear, inflected and compounded in every direction. The anatomical sense is almost beside the point in daily use.</p></div>
+      <div class="row2" data-k="french chatte  con con went its own way and now mostly means idiot, mild enough for the evening news. chatte carries the anatomical sense."><div class="lng">French</div><div><div class="wd">chatte</div><div class="var">also con</div></div><p class="gloss">Con went its own way and now mostly means idiot, mild enough for the evening news. Chatte carries the anatomical sense.</p></div>
+      <div class="row2" data-k="french, old con  landie "><div class="lng">French, Old</div><div><div class="wd">con</div><div class="var">also landie</div></div></div>
+      <div class="row2" data-k="galician cona  parrocha, crica "><div class="lng">Galician</div><div><div class="wd">cona</div><div class="var">also parrocha, crica</div></div></div>
+      <div class="row2" data-k="georgian მუტელი muṭeli  "><div class="lng">Georgian</div><div><div class="wd">მუტელი</div><div class="rom">muṭeli</div></div></div>
+      <div class="row2" data-k="german fotze  muschi, möse fotze is violent and almost always aimed at a woman. muschi is the nursery word."><div class="lng">German</div><div><div class="wd">Fotze</div><div class="var">also Muschi, Möse</div></div><p class="gloss">Fotze is violent and almost always aimed at a woman. Muschi is the nursery word.</p></div>
+      <div class="row2" data-k="greek μουνί mouní  ancient greek used κύσθος (kústhos)."><div class="lng">Greek</div><div><div class="wd">μουνί</div><div class="rom">mouní</div></div><p class="gloss">Ancient Greek used κύσθος (kústhos).</p></div>
+      <div class="row2" data-k="greek, ancient κύσθος kústhos  "><div class="lng">Greek, Ancient</div><div><div class="wd">κύσθος</div><div class="rom">kústhos</div></div></div>
+      <div class="row2" data-k="greenlandic utsuk   "><div class="lng">Greenlandic</div><div><div class="wd">utsuk</div></div></div>
+      <div class="row2" data-k="hebrew כּוּס kus  the same form as the arabic, and marked vulgar in hebrew too."><div class="lng">Hebrew</div><div><div class="wd" lang="ar">כּוּס</div><div class="rom">kus</div></div><p class="gloss">The same form as the Arabic, and marked vulgar in Hebrew too.</p></div>
+      <div class="row2" data-k="hindi चूत cūt  "><div class="lng">Hindi</div><div><div class="wd">चूत</div><div class="rom">cūt</div></div></div>
+      <div class="row2" data-k="hungarian pina   "><div class="lng">Hungarian</div><div><div class="wd">pina</div></div></div>
+      <div class="row2" data-k="icelandic píka  kunta kunta is the norse cousin of the english word; píka is the ordinary vulgar one."><div class="lng">Icelandic</div><div><div class="wd">píka</div><div class="var">also kunta</div></div><p class="gloss">Kunta is the Norse cousin of the English word; píka is the ordinary vulgar one.</p></div>
+      <div class="row2" data-k="indonesian memek  tempik, meki betawi and sundanese use memek as well."><div class="lng">Indonesian</div><div><div class="wd">memek</div><div class="var">also tempik, meki</div></div><p class="gloss">Betawi and Sundanese use memek as well.</p></div>
+      <div class="row2" data-k="interlingua cunno   "><div class="lng">Interlingua</div><div><div class="wd">cunno</div></div></div>
+      <div class="row2" data-k="irish pit   "><div class="lng">Irish</div><div><div class="wd">pit</div></div></div>
+      <div class="row2" data-k="italian fica  figa, fregna, passera figa in the north, fica further south. the masculine figo means cool, which is a journey."><div class="lng">Italian</div><div><div class="wd">fica</div><div class="var">also figa, fregna, passera</div></div><p class="gloss">Figa in the north, fica further south. The masculine figo means cool, which is a journey.</p></div>
+      <div class="row2" data-k="japanese まんこ manko おまんこ (omanko) taboo enough that print and broadcast still censor it, usually as ま○こ."><div class="lng">Japanese</div><div><div class="wd">まんこ</div><div class="rom">manko</div><div class="var">also おまんこ (omanko)</div></div><p class="gloss">Taboo enough that print and broadcast still censor it, usually as ま○こ.</p></div>
+      <div class="row2" data-k="kazakh ам am  "><div class="lng">Kazakh</div><div><div class="wd">ам</div><div class="rom">am</div></div></div>
+      <div class="row2" data-k="khmer កណ្ដួយ kɑnduəy  "><div class="lng">Khmer</div><div><div class="wd">កណ្ដួយ</div><div class="rom">kɑnduəy</div></div></div>
+      <div class="row2" data-k="korean 보지 boji 씹 (ssip) "><div class="lng">Korean</div><div><div class="wd">보지</div><div class="rom">boji</div><div class="var">also 씹 (ssip)</div></div></div>
+      <div class="row2" data-k="kyrgyz ам am  "><div class="lng">Kyrgyz</div><div><div class="wd">ам</div><div class="rom">am</div></div></div>
+      <div class="row2" data-k="lao ຫີ hī  "><div class="lng">Lao</div><div><div class="wd">ຫີ</div><div class="rom">hī</div></div></div>
+      <div class="row2" data-k="latin cunnus   parent of the clinical cunnilingus, and quite possibly unrelated to the english word."><div class="lng">Latin</div><div><div class="wd">cunnus</div></div><p class="gloss">Parent of the clinical cunnilingus, and quite possibly unrelated to the English word.</p></div>
+      <div class="row2" data-k="latvian pīzda  peža "><div class="lng">Latvian</div><div><div class="wd">pīzda</div><div class="var">also peža</div></div></div>
+      <div class="row2" data-k="lithuanian pyzda  putė, pizė "><div class="lng">Lithuanian</div><div><div class="wd">pyzda</div><div class="var">also putė, pizė</div></div></div>
+      <div class="row2" data-k="macedonian пичка pička путка (putka), минџа (mindža), слива (sliva) "><div class="lng">Macedonian</div><div><div class="wd">пичка</div><div class="rom">pička</div><div class="var">also путка (putka), минџа (mindža), слива (sliva)</div></div></div>
+      <div class="row2" data-k="malay puki   "><div class="lng">Malay</div><div><div class="wd">puki</div></div></div>
+      <div class="row2" data-k="maltese għoxx   "><div class="lng">Maltese</div><div><div class="wd">għoxx</div></div></div>
+      <div class="row2" data-k="mongolian ал al  "><div class="lng">Mongolian</div><div><div class="wd">ал</div><div class="rom">al</div></div></div>
+      <div class="row2" data-k="neapolitan pucchiacca  purchiacca, féssa "><div class="lng">Neapolitan</div><div><div class="wd">pucchiacca</div><div class="var">also purchiacca, féssa</div></div></div>
+      <div class="row2" data-k="northern sami cinˈná   "><div class="lng">Northern Sami</div><div><div class="wd">cinˈná</div></div></div>
+      <div class="row2" data-k="norwegian fitte  kuse, mus "><div class="lng">Norwegian</div><div><div class="wd">fitte</div><div class="var">also kuse, mus</div></div></div>
+      <div class="row2" data-k="papiamentu coño  tonto, donchin carried over from spanish."><div class="lng">Papiamentu</div><div><div class="wd">coño</div><div class="var">also tonto, donchin</div></div><p class="gloss">Carried over from Spanish.</p></div>
+      <div class="row2" data-k="pashto کس kos  "><div class="lng">Pashto</div><div><div class="wd" lang="ar">کس</div><div class="rom">kos</div></div></div>
+      <div class="row2" data-k="persian کس kos سوراخ کس (surâx-e kos) "><div class="lng">Persian</div><div><div class="wd" lang="ar">کس</div><div class="rom">kos</div><div class="var">also سوراخ کس (surâx-e kos)</div></div></div>
+      <div class="row2" data-k="polish pizda  cipa, cipsko "><div class="lng">Polish</div><div><div class="wd">pizda</div><div class="var">also cipa, cipsko</div></div></div>
+      <div class="row2" data-k="portuguese cona  boceta (brazil) cona in portugal, boceta in brazil, and a brazilian will not recognise the portuguese word."><div class="lng">Portuguese</div><div><div class="wd">cona</div><div class="var">also boceta (Brazil)</div></div><p class="gloss">Cona in Portugal, boceta in Brazil, and a Brazilian will not recognise the Portuguese word.</p></div>
+      <div class="row2" data-k="romanian pizdă   a slavic loan in a romance language: borrowed from old church slavonic rather than inherited from latin."><div class="lng">Romanian</div><div><div class="wd">pizdă</div></div><p class="gloss">A Slavic loan in a Romance language: borrowed from Old Church Slavonic rather than inherited from Latin.</p></div>
+      <div class="row2" data-k="russian пизда pizdá манда (mandá), писька (písʹka) one of the core words of mat, the russian obscene register that was long unprintable by law."><div class="lng">Russian</div><div><div class="wd">пизда</div><div class="rom">pizdá</div><div class="var">also манда (mandá), писька (písʹka)</div></div><p class="gloss">One of the core words of mat, the Russian obscene register that was long unprintable by law.</p></div>
+      <div class="row2" data-k="scottish gaelic pit   "><div class="lng">Scottish Gaelic</div><div><div class="wd">pit</div></div></div>
+      <div class="row2" data-k="serbo-croatian пичка / pička  пизда / pizda, pica, mindža, riba "><div class="lng">Serbo-Croatian</div><div><div class="wd">пичка / pička</div><div class="var">also пизда / pizda, pica, mindža, riba</div></div></div>
+      <div class="row2" data-k="slovak piča  kunda, pizda "><div class="lng">Slovak</div><div><div class="wd">piča</div><div class="var">also kunda, pizda</div></div></div>
+      <div class="row2" data-k="slovene pička  pizda "><div class="lng">Slovene</div><div><div class="wd">pička</div><div class="var">also pizda</div></div></div>
+      <div class="row2" data-k="spanish coño  concha, chocha, chucha, cuca, chocho in spain a general-purpose exclamation barely stronger than damn. much heavier across most of latin america, where the southern cone says concha instead."><div class="lng">Spanish</div><div><div class="wd">coño</div><div class="var">also concha, chocha, chucha, cuca, chocho</div></div><p class="gloss">In Spain a general-purpose exclamation barely stronger than damn. Much heavier across most of Latin America, where the Southern Cone says concha instead.</p></div>
+      <div class="row2" data-k="sundanese memek   "><div class="lng">Sundanese</div><div><div class="wd">memek</div></div></div>
+      <div class="row2" data-k="swedish fitta   "><div class="lng">Swedish</div><div><div class="wd">fitta</div></div></div>
+      <div class="row2" data-k="tagalog puke   "><div class="lng">Tagalog</div><div><div class="wd">puke</div></div></div>
+      <div class="row2" data-k="tajik кус kus  "><div class="lng">Tajik</div><div><div class="wd">кус</div><div class="rom">kus</div></div></div>
+      <div class="row2" data-k="tatar бетэк betek ам (am) "><div class="lng">Tatar</div><div><div class="wd">бетэк</div><div class="rom">betek</div><div class="var">also ам (am)</div></div></div>
+      <div class="row2" data-k="thai หี hǐi หอย (hɔ̌i), จิ๋ม (jǐm) "><div class="lng">Thai</div><div><div class="wd">หี</div><div class="rom">hǐi</div><div class="var">also หอย (hɔ̌i), จิ๋ม (jǐm)</div></div></div>
+      <div class="row2" data-k="turkish am  amcık the turkic am, shared from anatolia to central asia."><div class="lng">Turkish</div><div><div class="wd">am</div><div class="var">also amcık</div></div><p class="gloss">The Turkic am, shared from Anatolia to Central Asia.</p></div>
+      <div class="row2" data-k="turkmen am   "><div class="lng">Turkmen</div><div><div class="wd">am</div></div></div>
+      <div class="row2" data-k="ukrainian пизда pyzdá піська (písʹka) "><div class="lng">Ukrainian</div><div><div class="wd">пизда</div><div class="rom">pyzdá</div><div class="var">also піська (písʹka)</div></div></div>
+      <div class="row2" data-k="urdu چوت cūt  shared with hindi, as most of this vocabulary is."><div class="lng">Urdu</div><div><div class="wd" lang="ar">چوت</div><div class="rom">cūt</div></div><p class="gloss">Shared with Hindi, as most of this vocabulary is.</p></div>
+      <div class="row2" data-k="uzbek am   "><div class="lng">Uzbek</div><div><div class="wd">am</div></div></div>
+      <div class="row2" data-k="vietnamese lồn   "><div class="lng">Vietnamese</div><div><div class="wd">lồn</div></div></div>
+      <div class="row2" data-k="volapük kunud   "><div class="lng">Volapük</div><div><div class="wd">kunud</div></div></div>
+      <div class="row2" data-k="welsh cont   "><div class="lng">Welsh</div><div><div class="wd">cont</div></div></div>
+      <div class="row2" data-k="wolof dëjj   "><div class="lng">Wolof</div><div><div class="wd">dëjj</div></div></div>
+      <div class="row2" data-k="yakut абас abas  "><div class="lng">Yakut</div><div><div class="wd">абас</div><div class="rom">abas</div></div></div>
+      <div class="row2" data-k="yiddish פּירגע pirge  "><div class="lng">Yiddish</div><div><div class="wd" lang="ar">פּירגע</div><div class="rom">pirge</div></div></div>
+  </div>
+  <p class="msg" id="empty" hidden style="padding:30px 0">Nothing matches. Clear the search.</p>
+
+  <footer>
+    Terms and romanisations from Wiktionary's translation tables, etymologies from Wiktionary's reconstructions of Proto-Slavic <em>*pizda</em> and Proto-Indo-European <em>*písdeh&#8322;</em>. The notes on how heavy each word lands are my own reading and are the part most worth arguing with: register shifts by country, decade and company, and a word that is unsayable in one city is filler in the next. <a href="/">Back to the dictionary</a>.
+  </footer>
+</div>
+
+<script>
+(function(){
+  const box = document.getElementById("q"), list = document.getElementById("list");
+  const empty = document.getElementById("empty"), count = document.getElementById("count");
+  const rows = [...list.children], total = rows.length;
+  function run(){
+    const q = box.value.trim().toLowerCase();
+    let n = 0;
+    rows.forEach(r => { const on = !q || r.dataset.k.includes(q); r.hidden = !on; if(on) n++; });
+    empty.hidden = n > 0;
+    list.hidden = n === 0;
+    count.textContent = q ? n + (n === 1 ? " language" : " languages") : total + " languages";
+  }
+  box.addEventListener("input", run);
+  run();
+})();
+</script>
+</body>
+</html>
